@@ -1,5 +1,5 @@
 # Projet_GL
-Pour ajouter: git add <nom du fichier>
+Pour ajouter: git add nom_du_fichier
 	
 Pour soumettre: git commit -m "nom du fichier"
 
