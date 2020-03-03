@@ -7,7 +7,7 @@ package projet_gl;
 
 /**
  *
- * @author Adrien.N
+ * @author Groupe3
  */
 public class Duration {
     public int day;

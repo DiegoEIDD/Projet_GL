@@ -11,9 +11,9 @@ import java.util.List;
 
 /**
  *
- * @author Adrien.N
+ * @author Groupe3
  */
-public class Marker {
+public class Marker implements actionMarker {
     public String name;
     public List<Image> picture;
     public List <String> message;

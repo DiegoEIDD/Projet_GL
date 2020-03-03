@@ -7,7 +7,7 @@ package projet_gl;
 
 /**
  *
- * @author Adrien.N
+ * @author Groupe3
  */
 public class Event extends Marker {
     public Duration date;

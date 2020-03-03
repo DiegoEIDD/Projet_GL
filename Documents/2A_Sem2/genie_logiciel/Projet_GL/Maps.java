@@ -10,9 +10,9 @@ import java.util.List;
 
 /**
  *
- * @author Adrien.N
+ * @author Groupe3
  */
-public class Maps {
+public class Maps implements actionMaps{
     public String name;
     public List <Marker> mark;
     public List <Event> ev;

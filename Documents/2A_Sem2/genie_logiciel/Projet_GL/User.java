@@ -12,22 +12,21 @@ import projet_gl.Position;
 
 /**
  *
- * @author Adrien.N
+ * @author Groupe3
  */
-public class User {
+public class User implements actionUser{
     
 	 public String name;
 	 public String password;
 	 public List <Maps> map;
 	 //Access: list de maps
 	 public Access acc;
-	 public Position localisation;
+	 //public Position localisation;
 	 
-	 public User(String n, String p, Access a, Position l) {
+	 public User(String n, String p, Access a) {
 		 this.name = n;
 		 this.password = p;
 		 this.map = new ArrayList<>();
 		 this.acc = a;
-		 this.localisation = l;
 	 }
 }

@@ -9,7 +9,7 @@ import java.util.List;
 
 /**
  *
- * @author Adrien.N
+ * @author Groupe3
  */
 public class Access {
     public List <Maps> list_access;
