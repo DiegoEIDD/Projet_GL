@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package projet_gl;
+package com.example.datanucleus.DAO_Class;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -12,7 +12,7 @@ import java.util.List;
  *
  * @author Groupe3
  */
-public class Maps implements actionMaps{
+public class Maps{
     public String name;
     public List <Marker> mark;
     public List <Event> ev;
@@ -24,4 +24,5 @@ public class Maps implements actionMaps{
     	this.ev = new ArrayList<>();
     	this.access = new ArrayList<>();
     }
+    
 }

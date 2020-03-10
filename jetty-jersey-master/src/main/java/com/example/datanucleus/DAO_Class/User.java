@@ -1,8 +1,9 @@
+package com.example.datanucleus.DAO_Class;
 
 import java.util.ArrayList;
 import java.util.List;
-import projet_gl.Maps;
-import projet_gl.Position;
+import com.example.datanucleus.DAO_Class.Maps;
+import com.example.datanucleus.DAO_Class.Position;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -14,7 +15,7 @@ import projet_gl.Position;
  *
  * @author Groupe3
  */
-public class User implements actionUser{
+public class User{
     
 	 public String name;
 	 public String password;

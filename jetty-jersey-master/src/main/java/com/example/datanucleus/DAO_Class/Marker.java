@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package projet_gl;
+package com.example.datanucleus.DAO_Class;
 
 import java.awt.Image;
 import java.util.ArrayList;
@@ -13,7 +13,7 @@ import java.util.List;
  *
  * @author Groupe3
  */
-public class Marker implements actionMarker {
+public class Marker{
     public String name;
     public List<Image> picture;
     public List <String> message;
