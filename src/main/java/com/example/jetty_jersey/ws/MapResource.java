@@ -32,11 +32,11 @@ public class MapResource{
 		Maps m = new Maps("Toulouse");
 		return m;
 	}
-/*
+
 	@PUT
 	@Produces(MediaType.APPLICATION_JSON)
 	@Path("/share")
-	public boolean shareMap(Maps m, User u) {
+	public boolean shareMap(Maps m) {
 		//actionMaps.getInstance().shareMap(m,u);
 		//m.access.add(u);
 		 return true;
@@ -45,11 +45,11 @@ public class MapResource{
 	@DELETE
 	@Produces(MediaType.APPLICATION_JSON)
 	@Path("{friend}")
-	public void unshareMap(Maps m, User u) {
+	public void unshareMap(Maps m) {
 		//actionMaps.getInstance().unshareMap(m,u);
 		//m.access.remove(u);
 	}
-	*/
+	
 	@GET
 	@Produces(MediaType.APPLICATION_JSON)
 	@Path("/access")
@@ -95,35 +95,34 @@ public class MapResource{
 		return lEvent;
 	}
 	
-	@GET
-	@Produces(MediaType.APPLICATION_JSON)
-	@Path("/pMap")
-	public void printMap() {
-		//actionMaps.getInstance().printMap();
-		//System.out.println(Image);
-		//Image img1 = ImageIO.read(new File("../../../../../../../../1.PNG"));
-	}
+//	@GET
+//	@Produces(MediaType.APPLICATION_JSON)
+//	@Path("/pMap")
+//	public void printMap() {
+//		//actionMaps.getInstance().printMap();
+//		//System.out.println(Image);
+//		//Image img1 = ImageIO.read(new File("../../../../../../../../1.PNG"));
+//	}
 	
-	/*
 	@PUT
 	@Produces(MediaType.APPLICATION_JSON)
-	@Path("")
-	public void addMarker(String name, Position localisation) {
+	@Path("A")
+	public void addMarker(Position localisation) {
 		//actionMaps.getInstance().addMarker(name, localisation);
 		//mark.add();
 	}
 	
 	@PUT
 	@Produces(MediaType.APPLICATION_JSON)
-	@Path("")
-	public void addEvent(String name, Position localisation, Duration time) {
+	@Path("B")
+	public void addEvent(Position localisation) {
 		//actionMaps.getInstance().addMarker(name, localisation, time);
 		//ev.add();
 	}
 	
 	@DELETE
 	@Produces(MediaType.APPLICATION_JSON)
-	@Path("")
+	@Path("C")
 	public void deleteMarker(Marker point) {
 		//actionMaps.getInstance().deleteMarker(point);
 		//mark.remove(point);
@@ -131,10 +130,10 @@ public class MapResource{
 	
 	@DELETE
 	@Produces(MediaType.APPLICATION_JSON)
-	@Path("")
+	@Path("D")
 	public void deleteEvent(Event evt) {
 		//actionMaps.getInstance().deleteEvent(evt);
 		//ev.remove(evt);
 	}
-	*/
+	
 }

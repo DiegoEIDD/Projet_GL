@@ -71,7 +71,8 @@ $(function () {
         getServerData("/ws/user/name", callDone);
     });
     $("#buttonPut").click(function () {
-        $.Put("/ws/user/addMap", "add", callDone);
+        var toto = { "value" : 10};
+        $.Put("/ws/user/addMap", JSON.stringify(toto), callDone);
     });
     $("#buttonPost").click(function () {
         $.Post("/ws/user/names", null, callDone);
