@@ -68,6 +68,6 @@ function callDone(result){
 
 $(function(){
 	$("#button").click(function(){
-		getServerData("/ws/example/aircraft",callDone);
+		getServerData("/ws/user/name",callDone);
 	});
 });

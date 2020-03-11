@@ -22,17 +22,20 @@ import com.example.datanucleus.DAO_Class.User;
 import com.example.datanucleus.DAO_Class.actionMaps;
 
 @Path("/map")
-public class MapResource implements actionMaps{
+public class MapResource{
 	
-	public String getName() {
+	@GET
+	@Produces(MediaType.APPLICATION_JSON)
+	@Path("/name")
+	public Maps getName() {
 		// actionMaps.getInstance().getName();
-		String name = "name";
-		return name;
+		Maps m = new Maps("Toulouse");
+		return m;
 	}
-	
+/*
 	@PUT
 	@Produces(MediaType.APPLICATION_JSON)
-	@Path("{friend}")
+	@Path("/share")
 	public void shareMap(Maps m, User u) {
 		//actionMaps.getInstance().shareMap(m,u);
 		//m.access.add(u);
@@ -45,10 +48,10 @@ public class MapResource implements actionMaps{
 		//actionMaps.getInstance().unshareMap(m,u);
 		//m.access.remove(u);
 	}
-	
+	*/
 	@GET
 	@Produces(MediaType.APPLICATION_JSON)
-	@Path("tools/{sharedWith}")
+	@Path("/access")
 	public List<User> getAccess() {
 		//return actionMaps.getInstance().getAcess();
 		Access a = new Access();
@@ -62,7 +65,7 @@ public class MapResource implements actionMaps{
 	
 	@GET
 	@Produces(MediaType.APPLICATION_JSON)
-	@Path("tools/{places}")
+	@Path("/marker")
 	public List<Marker> getMarker() {
 		//return actionMaps.getInstance().getMarker();
 		//return m.mark;
@@ -77,7 +80,7 @@ public class MapResource implements actionMaps{
 	
 	@GET
 	@Produces(MediaType.APPLICATION_JSON)
-	@Path("tools/{event}")
+	@Path("/event")
 	public List<Event> getEvent() {
 		//return actionMaps.getInstance().getEvent(m);
 		//return m.ev;
@@ -93,13 +96,14 @@ public class MapResource implements actionMaps{
 	
 	@GET
 	@Produces(MediaType.APPLICATION_JSON)
-	@Path("")
+	@Path("/pMap")
 	public void printMap() {
 		//actionMaps.getInstance().printMap();
 		//System.out.println(Image);
 		//Image img1 = ImageIO.read(new File("../../../../../../../../1.PNG"));
 	}
 	
+	/*
 	@PUT
 	@Produces(MediaType.APPLICATION_JSON)
 	@Path("")
@@ -131,5 +135,5 @@ public class MapResource implements actionMaps{
 		//actionMaps.getInstance().deleteEvent(evt);
 		//ev.remove(evt);
 	}
-	
+	*/
 }

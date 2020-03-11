@@ -1,7 +1,9 @@
+
 package com.example.jetty_jersey.ws;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Stream;
 
 import javax.ws.rs.Consumes;
 import javax.ws.rs.DELETE;
@@ -19,28 +21,31 @@ import com.example.datanucleus.DAO_Class.Event;
 import com.example.datanucleus.DAO_Class.Maps;
 import com.example.datanucleus.DAO_Class.Marker;
 import com.example.datanucleus.DAO_Class.Position;
+import com.example.datanucleus.DAO_Class.actionMarker;
+import com.example.datanucleus.DAO_Class.actionUser;
 
-@Path("/map")
-public class UserResource implements com.example.datanucleus.DAO_Class.actionUser{
+@Path("/user")
+public class UserResource{
 
 	@GET
 	@Produces(MediaType.APPLICATION_JSON)
-	@Path("")
-	public String getName() {
+	@Path("/name")
+	public User getName() {
 		// actionUser.getInstance().getName();
-		String name = "name";
-		return name;
+		Access a = new Access();
+		User u = new User("juninho", "pernambucano",a);
+		return u;
 	}
 	
 	@GET
 	@Produces(MediaType.APPLICATION_JSON)
-	@Path("")
+	@Path("/password")
 	public String getPassword() {
 		// actionUser.getInstance().getPassword();
 		String pas = "password";
 		return pas;
 	}
-	
+	/*
 	@PUT
 	@Produces(MediaType.APPLICATION_JSON)
 	@Path("")
@@ -57,10 +62,10 @@ public class UserResource implements com.example.datanucleus.DAO_Class.actionUse
 		//actionUser.getInstance().modifyMapName(m,newName);
 		//m.name = newName;
 	}
-
+*/
 	@GET
 	@Produces(MediaType.APPLICATION_JSON)
-	@Path("friend_map/{Friend}")
+	@Path("/friend")
 	public List<String> getFriends() {
 		//return actionUser.getInstance().getFriends();
 		String s1= "Martin";
@@ -70,7 +75,7 @@ public class UserResource implements com.example.datanucleus.DAO_Class.actionUse
 		lString.add(s2);
 		return lString;
 	}
-	
+	/*
 	@PUT
 	@Produces(MediaType.APPLICATION_JSON)
 	@Path("friend_map/{Friend}")
@@ -88,10 +93,10 @@ public class UserResource implements com.example.datanucleus.DAO_Class.actionUse
 		//actionUser.getInstance().deleteFriends(u);
 		//friends.remove(u);
 	}
-	
+	*/
 	@GET
 	@Produces(MediaType.APPLICATION_JSON)
-	@Path("friend_map/{Map}")
+	@Path("/map")
 	public List<Maps> getMaps() {
 		//return actionUser.getInstance().getMaps();
 		Maps map1 = new Maps("Jason");
@@ -101,7 +106,7 @@ public class UserResource implements com.example.datanucleus.DAO_Class.actionUse
 		lMaps.add(map2);
 		return lMaps;
 	}
-	
+	/*
 	@DELETE
 	@Produces(MediaType.APPLICATION_JSON)
 	@Path("friend_map/{Map}")
@@ -110,17 +115,18 @@ public class UserResource implements com.example.datanucleus.DAO_Class.actionUse
 		//actionUser.getInstance().deleteMap(m);
 		//maps.remove(m);
 	}
-	
+*/	
+	/*
 	@GET
 	@Produces(MediaType.APPLICATION_JSON)
-	@Path("friend_map/{Map}")
+	@Path("/RMap")
 	public List<Maps> restrictedMapList(String search) {
 		//return actionUser.getInstance().restrictedMapList();
-		/*Stream<maps> sm = actionUser.getInstance().getMaps().stream();
+		Stream<Maps> sm = actionUser.getMaps().stream();
 		List<Maps> restricted = sm.map(m -> m.getName())
 		  .filter(m -> ifCharsEqual())
 		  .collect(toList());
-		return restricted;*/
+		return restricted;
 		Maps map1 = new Maps("Carl");
 		Maps map2 = new Maps("Houssem");
 		List <Maps> lMaps = new ArrayList<>();
@@ -134,11 +140,11 @@ public class UserResource implements com.example.datanucleus.DAO_Class.actionUse
 	@Path("friend_map/{Friend}")
 	public List<String> restrictedFriendList(String search) {
 		//return actionUser.getInstance().restrictedFriendList();
-		/*Stream<Users> sf = actionUser.getInstance().getFriends().stream();
+		Stream<User> sf = actionUser.getFriends().stream();
 		List<Maps> restricted = sf.map(f -> f.getName())
 		  .filter(m -> ifCharsEqual())
 		  .collect(toList());
-		return restricted;*/
+		return restricted;
 		String s1= "Leo";
 		String s2 = "Jason";
 		List <String> lString = new ArrayList<>();
@@ -146,5 +152,5 @@ public class UserResource implements com.example.datanucleus.DAO_Class.actionUse
 		lString.add(s2);
 		return lString;
     }
-	
+*/
 }

@@ -1,9 +1,12 @@
+
 package com.example.jetty_jersey.ws;
 
 import java.awt.Image;
+import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.imageio.ImageIO;
 import javax.ws.rs.Consumes;
 import javax.ws.rs.DELETE;
 import javax.ws.rs.GET;
@@ -14,12 +17,13 @@ import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 
 import com.example.datanucleus.DAO_Class.Duration;
+import com.example.datanucleus.DAO_Class.Marker;
 import com.example.datanucleus.DAO_Class.Position;
 import com.example.datanucleus.DAO_Class.actionMarker;
 
-@Path("/map")
-public class MarkerResource implements actionMarker{
-	
+@Path("/marker")
+public class MarkerResource{
+/*	
 	@PUT
 	@Produces(MediaType.APPLICATION_JSON)
 	@Path("marker")
@@ -47,10 +51,10 @@ public class MarkerResource implements actionMarker{
 	public void deleteMessage(String msg) {
 		//actionMarker.getInstance().deleteMessage(msg);
 	}
-	
+	*/
 	@GET
 	@Produces(MediaType.APPLICATION_JSON)
-	@Path("marker")
+	@Path("/name")
 	public String getName() {
 		//return actionMarker.getInstance().getName();
 		String name = "name";
@@ -69,11 +73,11 @@ public class MarkerResource implements actionMarker{
 		lImg.add(img1);
 		lImg.add(img2);
 		return lImg;
-	}*/
-	
+	}
+	*/
 	@GET
 	@Produces(MediaType.APPLICATION_JSON)
-	@Path("marker")
+	@Path("/msg")
 	public List<String> getMessages() {
 		//return actionMarker.getInstance().getMessages();
 		String s1= "msg1";
@@ -87,7 +91,7 @@ public class MarkerResource implements actionMarker{
 	
 	@GET
 	@Produces(MediaType.APPLICATION_JSON)
-	@Path("marker")
+	@Path("/position")
 	public Position getPosition() {
 		//return actionMarker.getInstance().getPosition();
 		Position pos = new Position(1,2);
@@ -96,11 +100,10 @@ public class MarkerResource implements actionMarker{
 	
 	@GET
 	@Produces(MediaType.APPLICATION_JSON)
-	@Path("{event}")
+	@Path("/duration")
 	public Duration getDuration() {
 		//return actionMarker.getInstance().getDuration();
 		Duration dur = new Duration(9,3,2020,10);
 		return dur;
-	}
-	
+	}	
 }
