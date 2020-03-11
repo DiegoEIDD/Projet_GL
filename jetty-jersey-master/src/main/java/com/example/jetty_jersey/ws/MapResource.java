@@ -36,9 +36,10 @@ public class MapResource{
 	@PUT
 	@Produces(MediaType.APPLICATION_JSON)
 	@Path("/share")
-	public void shareMap(Maps m, User u) {
+	public boolean shareMap(Maps m, User u) {
 		//actionMaps.getInstance().shareMap(m,u);
 		//m.access.add(u);
+		 return true;
 	}
 	
 	@DELETE

@@ -45,24 +45,27 @@ public class UserResource{
 		String pas = "password";
 		return pas;
 	}
-	/*
+	
 	@PUT
 	@Produces(MediaType.APPLICATION_JSON)
-	@Path("")
-	public void addMaps(String m) {
+	@Path("/addMap")
+	public boolean addMaps(/*String m*/) {
 		//List maps;
 		//actionUser.getInstance().addMaps(m);
 		//maps.add(m);
+		return true;
 	}
 	
 	@POST
 	@Produces(MediaType.APPLICATION_JSON)
-	@Path("{names}")
-	public void modifyMapName(Maps m, String newName) {
+	@Path("names")
+	public boolean modifyMapName(/*Maps m, String newName*/) {
 		//actionUser.getInstance().modifyMapName(m,newName);
 		//m.name = newName;
+		return true;
 	}
-*/
+	
+
 	@GET
 	@Produces(MediaType.APPLICATION_JSON)
 	@Path("/friend")
