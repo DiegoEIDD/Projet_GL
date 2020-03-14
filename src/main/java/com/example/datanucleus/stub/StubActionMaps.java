@@ -34,7 +34,7 @@ public class StubActionMaps implements com.example.datanucleus.DAO_Class.actionM
 	}
 
 	@Override
-	public List<User> getAcess() {
+	public List<User> getAccess() {
 		// TODO Auto-generated method stub
 		Access a = new Access();
 		User user1 = new User("Bruno","Guimaraes",a);

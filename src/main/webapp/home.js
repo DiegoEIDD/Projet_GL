@@ -75,9 +75,9 @@ $(function () {
         $.Put("/ws/user/addMap", JSON.stringify(toto), callDone);
     });
     $("#buttonPost").click(function () {
-        $.Post("/ws/user/names", null, callDone);
+        $.Post("/ws/user/modNames", null, callDone);
     });
     $("#buttonDelete").click(function () {
-        $.Delete("/ws/user/name", null, callDone);
+        $.Delete("/ws/user/deleteMap", null, callDone);
     });
 });

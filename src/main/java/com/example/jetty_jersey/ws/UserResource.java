@@ -66,7 +66,7 @@ public class UserResource{
 	@POST
 	@Consumes(MediaType.APPLICATION_JSON)
 	@Produces(MediaType.APPLICATION_JSON)
-	@Path("names")
+	@Path("modNames")
 	public boolean modifyMapName(/*Maps m, String newName*/) {
 		//actionUser.getInstance().modifyMapName(m,newName);
 		//m.name = newName;
@@ -90,7 +90,7 @@ public class UserResource{
 	@PUT
 	@Consumes(MediaType.APPLICATION_JSON)
 	@Produces(MediaType.APPLICATION_JSON)
-	@Path("friend_map/{Friend}")
+	@Path("friend_map/add")
 	public void addFriends(User u) {
 		//List friends;
 		//actionUser.getInstance().addFriends(u);
@@ -99,7 +99,7 @@ public class UserResource{
 	
 	@DELETE
 	@Consumes(MediaType.APPLICATION_JSON)
-	@Path("friend_map/{Friend}")
+	@Path("friend_map/delete")
 	public void deleteFriends(User u) {
 		//List friends;
 		//actionUser.getInstance().deleteFriends(u);
@@ -108,7 +108,7 @@ public class UserResource{
 	
 	@GET
 	@Produces(MediaType.APPLICATION_JSON)
-	@Path("/map")
+	@Path("/maps")
 	public List<Maps> getMaps() {
 		//return actionUser.getInstance().getMaps();
 		Maps map1 = new Maps("Jason");
@@ -120,7 +120,8 @@ public class UserResource{
 	}
 	
 	@DELETE
-	@Path("friend_map/{Map}")
+	@Path("deleteMap")
+	@Consumes(MediaType.APPLICATION_JSON)
 	public void deleteMap(@QueryParam("Map") String mapId) {
 		//List maps;
 		//actionUser.getInstance().deleteMap(m);

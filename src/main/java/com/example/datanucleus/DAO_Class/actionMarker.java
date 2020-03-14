@@ -12,7 +12,7 @@ public interface actionMarker {
 	/**
 	 * @return the list of images from the marker
 	 * */
-	List<Image> getImages();
+	//List<Image> getImages();
 	/**
 	 * @return the list of messages from the marker
 	 * */

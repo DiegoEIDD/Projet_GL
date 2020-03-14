@@ -22,37 +22,20 @@ import com.example.datanucleus.DAO_Class.User;
 import com.example.datanucleus.DAO_Class.actionMaps;
 
 @Path("/map")
-public class MapResource{
-	
-	@GET
-	@Produces(MediaType.APPLICATION_JSON)
-	@Path("/name")
-	public Maps getName() {
-		// actionMaps.getInstance().getName();
-		Maps m = new Maps("Toulouse");
-		return m;
-	}
+public class MapResource implements actionMaps{
 
-	@PUT
+	@GET
 	@Produces(MediaType.APPLICATION_JSON)
-	@Path("/share")
-	public boolean shareMap(Maps m) {
-		//actionMaps.getInstance().shareMap(m,u);
-		//m.access.add(u);
-		 return true;
-	}
-	
-	@DELETE
-	@Produces(MediaType.APPLICATION_JSON)
-	@Path("{friend}")
-	public void unshareMap(Maps m) {
-		//actionMaps.getInstance().unshareMap(m,u);
-		//m.access.remove(u);
+	@Path("names")
+	public String getName() {
+		// actionMaps.getInstance().getName();
+		String name = "name";
+		return name;
 	}
 	
 	@GET
 	@Produces(MediaType.APPLICATION_JSON)
-	@Path("/access")
+	@Path("access")
 	public List<User> getAccess() {
 		//return actionMaps.getInstance().getAcess();
 		Access a = new Access();
@@ -66,7 +49,15 @@ public class MapResource{
 	
 	@GET
 	@Produces(MediaType.APPLICATION_JSON)
-	@Path("/marker")
+	@Path("share")
+	public void shareMap(Maps m, User u) {
+		//actionMaps.getInstance().shareMap(m,u);
+		//m.access.add(u);
+	}
+
+	@GET
+	@Produces(MediaType.APPLICATION_JSON)
+	@Path("markers")
 	public List<Marker> getMarker() {
 		//return actionMaps.getInstance().getMarker();
 		//return m.mark;
@@ -81,7 +72,15 @@ public class MapResource{
 	
 	@GET
 	@Produces(MediaType.APPLICATION_JSON)
-	@Path("/event")
+	@Path("unshare")
+	public void unshareMap(Maps m, User u) {
+		//actionMaps.getInstance().unshareMap(m,u);
+		//m.access.remove(u);
+	}
+
+	@GET
+	@Produces(MediaType.APPLICATION_JSON)
+	@Path("event")
 	public List<Event> getEvent() {
 		//return actionMaps.getInstance().getEvent(m);
 		//return m.ev;
@@ -94,46 +93,48 @@ public class MapResource{
 		lEvent.add(ev2);
 		return lEvent;
 	}
-	
-//	@GET
-//	@Produces(MediaType.APPLICATION_JSON)
-//	@Path("/pMap")
-//	public void printMap() {
-//		//actionMaps.getInstance().printMap();
-//		//System.out.println(Image);
-//		//Image img1 = ImageIO.read(new File("../../../../../../../../1.PNG"));
-//	}
-	
+
 	@PUT
+	@Consumes(MediaType.APPLICATION_JSON)
 	@Produces(MediaType.APPLICATION_JSON)
-	@Path("A")
-	public void addMarker(Position localisation) {
+	@Path("")
+	public void addMarker(String name, Position localisation) {
 		//actionMaps.getInstance().addMarker(name, localisation);
 		//mark.add();
 	}
 	
 	@PUT
+	@Consumes(MediaType.APPLICATION_JSON)
 	@Produces(MediaType.APPLICATION_JSON)
-	@Path("B")
-	public void addEvent(Position localisation) {
+	@Path("")
+	public void addEvent(String name, Position localisation, Duration time) {
 		//actionMaps.getInstance().addMarker(name, localisation, time);
 		//ev.add();
 	}
 	
 	@DELETE
-	@Produces(MediaType.APPLICATION_JSON)
-	@Path("C")
+	@Consumes(MediaType.APPLICATION_JSON)
+	@Path("")
+	public void printMap() {
+		//actionMaps.getInstance().printMap();
+		//System.out.println(Image);
+		//Image img1 = ImageIO.read(new File("../../../../../../../../1.PNG"));
+	}
+	
+	@DELETE
+	@Consumes(MediaType.APPLICATION_JSON)
+	@Path("")
 	public void deleteMarker(Marker point) {
 		//actionMaps.getInstance().deleteMarker(point);
 		//mark.remove(point);
 	}
 	
 	@DELETE
-	@Produces(MediaType.APPLICATION_JSON)
-	@Path("D")
+	@Consumes(MediaType.APPLICATION_JSON)
+	@Path("")
 	public void deleteEvent(Event evt) {
 		//actionMaps.getInstance().deleteEvent(evt);
 		//ev.remove(evt);
 	}
-	
+
 }

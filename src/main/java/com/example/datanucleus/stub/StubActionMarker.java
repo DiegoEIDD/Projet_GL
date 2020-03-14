@@ -81,10 +81,4 @@ public class StubActionMarker implements com.example.datanucleus.DAO_Class.actio
 		//actionMarker.getInstance().deleteMessage(msg);
 	}
 
-	@Override
-	public List<Image> getImages() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
 }

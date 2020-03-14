@@ -1,4 +1,3 @@
-
 package com.example.jetty_jersey.ws;
 
 import java.awt.Image;
@@ -18,67 +17,79 @@ import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 
 import com.example.datanucleus.DAO_Class.Duration;
-import com.example.datanucleus.DAO_Class.Marker;
 import com.example.datanucleus.DAO_Class.Position;
 import com.example.datanucleus.DAO_Class.actionMarker;
 
-@Path("/marker")
-@Consumes(MediaType.APPLICATION_JSON)
-public class MarkerResource{
+@Path("/map")
+public class MarkerResource implements actionMarker{
 	
 	@PUT
+	@Consumes(MediaType.APPLICATION_JSON)
 	@Produces(MediaType.APPLICATION_JSON)
-	@Path("marker")
+	@Path("addImg")
 	public void addImage(String way) {
 		//actionMarker.getInstance().addImage(way);
 	}
 	
 	@PUT
+	@Consumes(MediaType.APPLICATION_JSON)
 	@Produces(MediaType.APPLICATION_JSON)
-	@Path("markerA")
+	@Path("addMsg")
 	public void addMessage(String msg) {
 		//actionMarker.getInstance().addMessage(msg);
 	}
 	
 	@DELETE
-	@Produces(MediaType.APPLICATION_JSON)
-	@Path("marker")
+	@Consumes(MediaType.APPLICATION_JSON)
+	@Path("deleteImg")
 	public void deleteImage(Image img) {
 		//actionMarker.getInstance().deleteImage(img);
 	}
 	
 	@DELETE
-	@Produces(MediaType.APPLICATION_JSON)
-	@Path("marker")
+	@Consumes(MediaType.APPLICATION_JSON)
+	@Path("deleteMsg")
 	public void deleteMessage(String msg) {
 		//actionMarker.getInstance().deleteMessage(msg);
 	}
 	
 	@GET
 	@Produces(MediaType.APPLICATION_JSON)
-	@Path("/name")
+	@Path("name")
 	public String getName() {
 		//return actionMarker.getInstance().getName();
 		String name = "name";
 		return name;
 	}
 	
-	@GET
-	@Produces(MediaType.APPLICATION_JSON)
-	@Path("marker")
-	public List<Image> getImages() throws Exception {
-		//return actionMarker.getInstance().getImages();
-		Image img1 = ImageIO.read(new File("../../../../../../../../1.PNG"));
-		Image img2 = ImageIO.read(new File("../../../../../../../../1.PNG"));
-		List <Image> lImg = new ArrayList<>();
-		lImg.add(img1);
-		lImg.add(img2);
-		return lImg;
-	}
+//	@GET
+//	@Produces(MediaType.APPLICATION_JSON)
+//	@Path("images")
+//	public List<Image> getImages() {
+//		//return actionMarker.getInstance().getImages();
+//		Image img1 = null;
+//		try {
+//			img1 = ImageIO.read(new File("../../../../../../../../3.PNG"));
+//		} catch (IOException e1) {
+//			// TODO Auto-generated catch block
+//			e1.printStackTrace();
+//		}
+//		Image img2 = null;
+//		try {
+//			img2 = ImageIO.read(new File("../../../../../../../../3.PNG"));
+//		} catch (IOException e) {
+//			// TODO Auto-generated catch block
+//			e.printStackTrace();
+//		}
+//		List <Image> lImg = new ArrayList<>();
+//		lImg.add(img1);
+//		lImg.add(img2);
+//		return lImg;
+//	}
 	
 	@GET
 	@Produces(MediaType.APPLICATION_JSON)
-	@Path("/msg")
+	@Path("messages")
 	public List<String> getMessages() {
 		//return actionMarker.getInstance().getMessages();
 		String s1= "msg1";
@@ -89,9 +100,10 @@ public class MarkerResource{
 		return lString;
 	}
     
+	
 	@GET
 	@Produces(MediaType.APPLICATION_JSON)
-	@Path("/position")
+	@Path("position")
 	public Position getPosition() {
 		//return actionMarker.getInstance().getPosition();
 		Position pos = new Position(1,2);
@@ -100,10 +112,11 @@ public class MarkerResource{
 	
 	@GET
 	@Produces(MediaType.APPLICATION_JSON)
-	@Path("/duration")
+	@Path("duration")
 	public Duration getDuration() {
 		//return actionMarker.getInstance().getDuration();
 		Duration dur = new Duration(9,3,2020,10);
 		return dur;
-	}	
+	}
+	
 }

@@ -20,7 +20,7 @@ public interface actionMaps {
 	/**
 	 * @return the list of people who have access to the map
 	 * */
-	List<User> getAcess();
+	List<User> getAccess();
 	
 	/**
 	 * Print the image of the map on the screen
