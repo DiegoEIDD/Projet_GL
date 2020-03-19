@@ -12,6 +12,7 @@ import javax.ws.rs.POST;
 import javax.ws.rs.PUT;
 import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
+import javax.ws.rs.QueryParam;
 import javax.ws.rs.core.MediaType;
 
 import com.example.datanucleus.DAO_Class.User;
@@ -45,11 +46,17 @@ public class UserResource{
 		String pas = "password";
 		return pas;
 	}
+
+	public static class Toto {
+		public Integer value;
+	}
 	
 	@PUT
+	@Consumes(MediaType.APPLICATION_JSON)
 	@Produces(MediaType.APPLICATION_JSON)
 	@Path("/addMap")
-	public boolean addMaps(/*String m*/) {
+	public boolean addMaps(Toto toto) {
+		System.out.println(toto.value);
 		//List maps;
 		//actionUser.getInstance().addMaps(m);
 		//maps.add(m);
@@ -57,8 +64,9 @@ public class UserResource{
 	}
 	
 	@POST
+	@Consumes(MediaType.APPLICATION_JSON)
 	@Produces(MediaType.APPLICATION_JSON)
-	@Path("names")
+	@Path("/modNames")
 	public boolean modifyMapName(/*Maps m, String newName*/) {
 		//actionUser.getInstance().modifyMapName(m,newName);
 		//m.name = newName;
@@ -78,10 +86,11 @@ public class UserResource{
 		lString.add(s2);
 		return lString;
 	}
-	/*
+	
 	@PUT
+	@Consumes(MediaType.APPLICATION_JSON)
 	@Produces(MediaType.APPLICATION_JSON)
-	@Path("friend_map/{Friend}")
+	@Path("/addF")
 	public void addFriends(User u) {
 		//List friends;
 		//actionUser.getInstance().addFriends(u);
@@ -89,17 +98,18 @@ public class UserResource{
 	}
 	
 	@DELETE
-	@Produces(MediaType.APPLICATION_JSON)
-	@Path("friend_map/{Friend}")
-	public void deleteFriends(User u) {
+	@Consumes(MediaType.APPLICATION_JSON)
+	@Path("/deleteF")
+	public boolean deleteFriends(/*User u*/) {
 		//List friends;
 		//actionUser.getInstance().deleteFriends(u);
 		//friends.remove(u);
+		return true;
 	}
-	*/
+	
 	@GET
 	@Produces(MediaType.APPLICATION_JSON)
-	@Path("/map")
+	@Path("/maps")
 	public List<Maps> getMaps() {
 		//return actionUser.getInstance().getMaps();
 		Maps map1 = new Maps("Jason");
@@ -109,51 +119,51 @@ public class UserResource{
 		lMaps.add(map2);
 		return lMaps;
 	}
-	/*
+	
 	@DELETE
-	@Produces(MediaType.APPLICATION_JSON)
-	@Path("friend_map/{Map}")
-	public void deleteMap(Maps m) {
+	@Path("/deleteMap")
+	@Consumes(MediaType.APPLICATION_JSON)
+	public void deleteMap(@QueryParam("Map") String mapId) {
 		//List maps;
 		//actionUser.getInstance().deleteMap(m);
 		//maps.remove(m);
 	}
-*/	
-	/*
-	@GET
-	@Produces(MediaType.APPLICATION_JSON)
-	@Path("/RMap")
-	public List<Maps> restrictedMapList(String search) {
-		//return actionUser.getInstance().restrictedMapList();
-		Stream<Maps> sm = actionUser.getMaps().stream();
-		List<Maps> restricted = sm.map(m -> m.getName())
-		  .filter(m -> ifCharsEqual())
-		  .collect(toList());
-		return restricted;
-		Maps map1 = new Maps("Carl");
-		Maps map2 = new Maps("Houssem");
-		List <Maps> lMaps = new ArrayList<>();
-		lMaps.add(map1);
-		lMaps.add(map2);
-		return lMaps;
-	}
+
 	
-	@GET
-	@Produces(MediaType.APPLICATION_JSON)
-	@Path("friend_map/{Friend}")
-	public List<String> restrictedFriendList(String search) {
-		//return actionUser.getInstance().restrictedFriendList();
-		Stream<User> sf = actionUser.getFriends().stream();
-		List<Maps> restricted = sf.map(f -> f.getName())
-		  .filter(m -> ifCharsEqual())
-		  .collect(toList());
-		return restricted;
-		String s1= "Leo";
-		String s2 = "Jason";
-		List <String> lString = new ArrayList<>();
-		lString.add(s1);
-		lString.add(s2);
-		return lString;
-    }
-*/
+//	@GET
+//	@Produces(MediaType.APPLICATION_JSON)
+//	@Path("/RMap")
+//	public List<Maps> restrictedMapList(String search) {
+//		//return actionUser.getInstance().restrictedMapList();
+//		Stream<Maps> sm = actionUser.getMaps().stream();
+//		List<Maps> restricted = sm.map(m -> m.getName())
+//		  .filter(m -> ifCharsEqual())
+//		  .collect(toList());
+//		return restricted;
+//		Maps map1 = new Maps("Carl");
+//		Maps map2 = new Maps("Houssem");
+//		List <Maps> lMaps = new ArrayList<>();
+//		lMaps.add(map1);
+//		lMaps.add(map2);
+//		return lMaps;
+//	}
+	
+//	@GET
+//	@Produces(MediaType.APPLICATION_JSON)
+//	@Path("/friend_map/RFriend")
+//	public List<String> restrictedFriendList(String search) {
+//		//return actionUser.getInstance().restrictedFriendList();
+//		Stream<User> sf = actionUser.getFriends().stream();
+//		List<Maps> restricted = sf.map(f -> f.getName())
+//		  .filter(m -> ifCharsEqual())
+//		  .collect(toList());
+//		return restricted;
+//		String s1= "Leo";
+//		String s2 = "Jason";
+//		List <String> lString = new ArrayList<>();
+//		lString.add(s1);
+//		lString.add(s2);
+//		return lString;
+//    }
+
 }
