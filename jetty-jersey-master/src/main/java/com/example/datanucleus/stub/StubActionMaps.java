@@ -15,10 +15,11 @@ import com.example.datanucleus.DAO_Class.User;
 public class StubActionMaps implements com.example.datanucleus.DAO_Class.actionMaps {
 
 	@Override
-	public String getName() {
+	public User getName() {
 		// TODO Auto-generated method stub
-		String name = "a";
-		return name;
+		Access a = new Access();
+		User user1 = new User("Bruno","Guimaraes",a);
+		return user1;
 	}
 
 	@Override
@@ -60,46 +61,53 @@ public class StubActionMaps implements com.example.datanucleus.DAO_Class.actionM
     }
     
     @Override
-    public void printMap() {
+    public boolean printMap() {
 		//actionMaps.getInstance().printMap();
 		//System.out.println(Image);
 		//Image img1 = ImageIO.read(new File("../../../../../../../../1.PNG"));
+    	return true;
     }
     
     @Override
-    public void shareMap(Maps m, User u) {
+    public boolean shareMap(Maps m, User u) {
 		//actionMaps.getInstance().shareMap(m,u);
 		//m.access.add(u);
+    	return true;
     }
     
     @Override
-    public void unshareMap(Maps m, User u) {
+    public boolean unshareMap(Maps m, User u) {
 		//actionMaps.getInstance().unshareMap(m,u);
 		//m.access.remove(u);
+    	return true;
 	}
 
 	@Override
-	public void addMarker(String name, Position localisation) {
+	public boolean addMarker(String name, Position localisation) {
 		//actionMaps.getInstance().addMarker(name, localisation);
 		//mark.add();
+		return true;
 	}
 
 	@Override
-	public void deleteMarker(Marker point) {
+	public boolean deleteMarker(Marker point) {
 		//actionMaps.getInstance().deleteMarker(point);
 		//mark.remove(point);
+		return true;
 	}
 
 	@Override
-	public void addEvent(String name, Position localisation, Duration time) {
+	public boolean addEvent(String name, Position localisation, Duration time) {
 		//actionMaps.getInstance().addMarker(name, localisation, time);
 		//ev.add();
+		return true;
 	}
 
 	@Override
-	public void deleteEvent(Event evt) {
+	public boolean deleteEvent(Event evt) {
 		//actionMaps.getInstance().deleteEvent(evt);
 		//ev.remove(evt);
+		return true;
 	}
 
 }

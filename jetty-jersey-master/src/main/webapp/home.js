@@ -67,16 +67,16 @@ function callDone(result) {
 
 $(function () {
     $("#buttonGet").click(function () {
-        getServerData("/ws/user/name", callDone);
+        getServerData("/wsStub/user/password", callDone);
     });
     $("#buttonPut").click(function () {
         var toto = { "value" : 10};
-        $.Put("/ws/user/addMap", JSON.stringify(toto), callDone);
+        $.Put("/wsStub/user/addMap", JSON.stringify(toto), callDone);
     });
     $("#buttonPost").click(function () {
-        $.Post("/ws/user/modNames", null, callDone);
+        $.Post("/wsStub/user/modNames", null, callDone);
     });
     $("#buttonDelete").click(function () {
-        $.Delete("/ws/user/deleteF", null, callDone);
+        $.Delete("/wsStub/user/deleteF", null, callDone);
     });
 });

@@ -30,20 +30,20 @@ public interface actionMarker {
 	 * @param way of type String
 	 * Add an image to the marker
 	 * */
-	void addImage(String way);
+	boolean addImage(String way);
 	/**
 	 * @param img of type Image
 	 * Delete an image from the marker
 	 * */
-	void deleteImage(Image img);
+	boolean deleteImage(Image img);
 	/**
 	 * @param msg of type String
 	 * Add a message to the marker
 	 * */
-	void addMessage(String msg);
+	boolean addMessage(String msg);
 	/**
 	 * @param msg of type String
 	 * Delete a message from the marker
 	 * */
-	void deleteMessage(String msg);
+	boolean deleteMessage(String msg);
 }

@@ -62,23 +62,27 @@ public class StubActionMarker implements com.example.datanucleus.DAO_Class.actio
 	}
 
 	@Override
-	public void addImage(String way) {
+	public boolean addImage(String way) {
 		//actionMarker.getInstance().addImage(way);
+		return true;
 	}
 
 	@Override
-	public void deleteImage(Image img) {
+	public boolean deleteImage(Image img) {
 		//actionMarker.getInstance().deleteImage(img);
+		return true;
 	}
 
 	@Override
-	public void addMessage(String msg) {
+	public boolean addMessage(String msg) {
 		//actionMarker.getInstance().addMessage(msg);
+		return true;
 	}
 
 	@Override
-	public void deleteMessage(String msg) {
+	public boolean deleteMessage(String msg) {
 		//actionMarker.getInstance().deleteMessage(msg);
+		return true;
 	}
 
 	@Override

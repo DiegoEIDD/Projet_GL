@@ -41,10 +41,12 @@ public class UserResource{
 	@GET
 	@Produces(MediaType.APPLICATION_JSON)
 	@Path("/password")
-	public String getPassword() {
+	public User getPassword() {
 		// actionUser.getInstance().getPassword();
-		String pas = "password";
-		return pas;
+		Access a = new Access();
+		User u = new User("juninho", "pernambucano",a);
+		u.password = "password";
+		return u;
 	}
 
 	public static class Toto {
