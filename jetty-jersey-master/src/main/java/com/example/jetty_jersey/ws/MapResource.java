@@ -47,7 +47,8 @@ public class MapResource{
 		return lUser;
 	}
 	
-	@GET
+	@PUT
+	@Consumes(MediaType.APPLICATION_JSON)
 	@Produces(MediaType.APPLICATION_JSON)
 	@Path("/share")
 	public boolean shareMap(/*Maps m, User u*/) {
@@ -71,8 +72,8 @@ public class MapResource{
 		return lMark;
 	}
 	
-	@GET
-	@Produces(MediaType.APPLICATION_JSON)
+	@DELETE
+	@Consumes(MediaType.APPLICATION_JSON)
 	@Path("/unshare")
 	public boolean unshareMap(/*Maps m, User u*/) {
 		//actionMaps.getInstance().unshareMap(m,u);
@@ -100,18 +101,20 @@ public class MapResource{
 	@Consumes(MediaType.APPLICATION_JSON)
 	@Produces(MediaType.APPLICATION_JSON)
 	@Path("/addMark")
-	public void addMarker(/*String name, Position localisation*/) {
+	public boolean addMarker(/*String name, Position localisation*/) {
 		//actionMaps.getInstance().addMarker(name, localisation);
 		//mark.add();
+		return true;
 	}
 	
 	@PUT
 	@Consumes(MediaType.APPLICATION_JSON)
 	@Produces(MediaType.APPLICATION_JSON)
 	@Path("/addEvt")
-	public void addEvent(/*String name, Position localisation, Duration time*/) {
+	public boolean addEvent(/*String name, Position localisation, Duration time*/) {
 		//actionMaps.getInstance().addMarker(name, localisation, time);
 		//ev.add();
+		return true;
 	}
 	
 	@GET

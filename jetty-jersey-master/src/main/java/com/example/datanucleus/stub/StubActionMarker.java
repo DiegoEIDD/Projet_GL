@@ -19,10 +19,13 @@ import com.example.datanucleus.DAO_Class.User;
 public class StubActionMarker implements com.example.datanucleus.DAO_Class.actionMarker{
 
 	@Override
-	public String getName() {
+	public Marker getName() {
 		// TODO Auto-generated method stub
-		String name = "a";
-		return name;
+		//String name = "a";
+		Position pos = new Position(1,2);
+		String n = "Mark";
+		Marker m = new Marker(n,pos);
+		return m;
 	}
 
 	/*@Override

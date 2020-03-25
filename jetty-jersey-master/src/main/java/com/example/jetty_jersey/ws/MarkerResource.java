@@ -57,9 +57,10 @@ public class MarkerResource{
 	@GET
 	@Produces(MediaType.APPLICATION_JSON)
 	@Path("name")
-	public String getName() {
+	public Marker getName() {
 		//return actionMarker.getInstance().getName();
-		String name = "name";
+		Position pos = new Position(1,2);
+		Marker m = new Marker("Mark",pos);
 		return name;
 	}
 	

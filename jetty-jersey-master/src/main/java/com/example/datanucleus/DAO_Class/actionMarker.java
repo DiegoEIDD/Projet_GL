@@ -8,7 +8,7 @@ public interface actionMarker {
 	/**
 	 * @return the name of the marker
 	 * */
-	String getName();
+	Marker getName();
 	/**
 	 * @return the list of images from the marker
 	 * */
