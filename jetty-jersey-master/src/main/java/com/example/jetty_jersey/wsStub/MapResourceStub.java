@@ -44,17 +44,19 @@ public class MapResourceStub{
 		return map.getAcess();
 	}
 	
-	@GET
+	@PUT
 	@Produces(MediaType.APPLICATION_JSON)
+	@Consumes(MediaType.APPLICATION_JSON)
 	@Path("/share")
-	public boolean shareMap(Maps m, User u) {
+	public boolean shareMap(/*Maps m, User u*/) {
 		//actionMaps.getInstance().shareMap(m,u);
 		//m.access.add(u);
 		/*Maps m = new Maps("map");
 		Access a = new Access();
 		User u = new User("juninho", "pernambucano",a);*/
-		StubActionMaps map = new StubActionMaps();
-		return map.shareMap(m, u);
+		//StubActionMaps map = new StubActionMaps();
+		//return map.shareMap(m, u);
+		return true;
 	}
 
 	@GET
@@ -67,8 +69,8 @@ public class MapResourceStub{
 		return map.getMarker();
 	}
 	
-	@GET
-	@Produces(MediaType.APPLICATION_JSON)
+	@DELETE
+	@Consumes(MediaType.APPLICATION_JSON)
 	@Path("/unshare")
 	public boolean unshareMap(/*Maps m, User u*/) {
 		//actionMaps.getInstance().unshareMap(m,u);
@@ -97,9 +99,10 @@ public class MapResourceStub{
 	public boolean addMarker(/*String name, Position localisation*/) {
 		//actionMaps.getInstance().addMarker(name, localisation);
 		//mark.add();
-		Position pos = new Position(1,2);
-		StubActionMaps map = new StubActionMaps();
-		return map.addMarker("test", pos);
+		//Position pos = new Position(1,2);
+		//StubActionMaps map = new StubActionMaps();
+		//map.addMarker("test", pos);
+		return true;
 	}
 	
 	@PUT
@@ -112,7 +115,8 @@ public class MapResourceStub{
 		StubActionMaps map = new StubActionMaps();
 		Position pos = new Position(1,2);
 		Duration dur = new Duration(9,3,2020,10);
-		return map.addEvent("test", pos, dur);
+		map.addEvent("test", pos, dur);
+		return true;
 	}
 	
 	@GET

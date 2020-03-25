@@ -66,16 +66,21 @@ public class MarkerResourceStub{
 	
 	@GET
 	@Produces(MediaType.APPLICATION_JSON)
-	@Path("name")
-	public String getName() {
+	@Path("/name")
+	public boolean getName() {
 		//return actionMarker.getInstance().getName();
-		StubActionMarker m = new StubActionMarker();
-		return m.getName();
+		//StubActionMarker m = new StubActionMarker();
+		return true;
 	}
+//	public Marker getName() {
+//		//return actionMarker.getInstance().getName();
+//		StubActionMarker m = new StubActionMarker();
+//		return m.getName();
+//	}
 	
 //	@GET
 //	@Produces(MediaType.APPLICATION_JSON)
-//	@Path("images")
+//	@Path("/images")
 //	public List<Image> getImages() {
 //		//return actionMarker.getInstance().getImages();
 //		Image img1 = null;
@@ -100,7 +105,7 @@ public class MarkerResourceStub{
 	
 	@GET
 	@Produces(MediaType.APPLICATION_JSON)
-	@Path("messages")
+	@Path("/messages")
 	public List<String> getMessages() {
 		//return actionMarker.getInstance().getMessages();
 		StubActionMarker m = new StubActionMarker();
@@ -110,7 +115,7 @@ public class MarkerResourceStub{
 	
 	@GET
 	@Produces(MediaType.APPLICATION_JSON)
-	@Path("position")
+	@Path("/position")
 	public Position getPosition() {
 		//return actionMarker.getInstance().getPosition();
 		StubActionMarker m = new StubActionMarker();
@@ -119,7 +124,7 @@ public class MarkerResourceStub{
 	
 	@GET
 	@Produces(MediaType.APPLICATION_JSON)
-	@Path("duration")
+	@Path("/duration")
 	public Duration getDuration() {
 		//return actionMarker.getInstance().getDuration();
 		StubActionMarker m = new StubActionMarker();
