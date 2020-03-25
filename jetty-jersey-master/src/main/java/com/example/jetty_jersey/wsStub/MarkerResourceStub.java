@@ -18,6 +18,7 @@ import javax.ws.rs.core.MediaType;
 
 import com.example.datanucleus.DAO_Class.Duration;
 import com.example.datanucleus.DAO_Class.Position;
+import com.example.datanucleus.DAO_Class.Marker;
 import com.example.datanucleus.DAO_Class.actionMarker;
 import com.example.datanucleus.stub.StubActionMarker;
 import com.example.datanucleus.stub.StubActionUser;
@@ -67,10 +68,10 @@ public class MarkerResourceStub{
 	@GET
 	@Produces(MediaType.APPLICATION_JSON)
 	@Path("/name")
-	public boolean getName() {
+	public Marker getName() {
 		//return actionMarker.getInstance().getName();
-		//StubActionMarker m = new StubActionMarker();
-		return true;
+		StubActionMarker m = new StubActionMarker();
+		return m.getName();
 	}
 //	public Marker getName() {
 //		//return actionMarker.getInstance().getName();
