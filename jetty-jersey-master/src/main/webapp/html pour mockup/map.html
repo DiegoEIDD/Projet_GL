@@ -1,0 +1,128 @@
+<html>
+<head>
+
+
+<style type="text/css">
+
+
+.btn {
+     width:200px;
+     text-align:center;
+     line-height:100%;
+     padding:0.3em;
+     font:16px Arial,sans-serif bold;
+     font-style:normal;
+     text-decoration:none;
+     margin:2px;
+     vertical-align:text-bottom;
+     zoom:1;
+     outline:none;
+     font-size-adjust:none;
+     font-stretch:normal;
+     border-radius:50px;
+     box-shadow:0px 1px 2px rgba(0,0,0,0.2);
+     text-shadow:0px 1px 1px rgba(0,0,0,0.3);
+     color:#fefee9;
+     border:0.2px solid #2299ff;
+     background-repeat:repeat;
+     background-size:auto;
+     background-origin:padding-box;
+     background-clip:padding-box;
+     background-color:#3399ff;
+     background: linear-gradient(to bottom, #eeeff9 0%,#3399ff 100%);
+}
+ 
+.btn:hover {
+    background: #268DFF;
+}
+
+
+
+#lien{
+	font-size: 15px;
+	position:absolute;
+	left:700px;
+	top:100px;
+}
+
+</style>
+</head>
+
+<body>
+<div style="background-color:#F0F8FF; width:1200px;height: 800px">
+<div>
+	<img src="logo.png" >
+</div>
+
+<div>	
+<button id="login" class="btn" type="button" style="position:absolute;left:250px;top:60px" onclick="script">Log In</button>
+<button id="signup "class="btn" type="button" style="position:absolute;left:500px;top:60px" onclick="script">Sign Up</button>
+</div>
+
+<div id="lien" >
+	<a href="url">Privacy Policies</a>
+</div>
+<div>
+<p>Map 1</p>
+<form>
+<label for="private">Private</label>
+<input type="radio" name="acces" id="private" />
+<br />
+<label for="public">Public</label>
+<input type="radio" name="acces" id="public" />
+</form>
+</div>
+
+<div>
+	<img src="mark1.jfif" onclick="script" style="position:absolute;left:30px;top:230px;width:40px;height:40px">
+</div>
+
+<div>
+	<img src="mark2.jpg" onclick="script" style="position:absolute;left:30px;top:280px;width:40px;height:40px">
+</div>
+
+<div>
+	<img src="localisation.jpg" onclick="script" style="position:absolute;left:30px;top:330px;width:40px;height:40px">
+</div>
+
+<div style="position:absolute;left:130px;top:40px">
+<link rel="stylesheet" type="text/css" href="cadre.css">
+		<link rel="stylesheet" href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css"
+   		integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ=="
+   		crossorigin=""/>
+		
+		<div id="mapleflet1">
+			
+		</div>
+		<script type="text/javascript" src="https://code.jquery.com/jquery-2.2.0.min.js"></script>
+	    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3/underscore-min.js"></script>
+		<script type="text/javascript" src="leaflet.js"></script>
+		<script src="https://unpkg.com/leaflet@1.6.0/dist/leaflet.js"
+   		integrity="sha512-gZwIG9x3wUXg2hdXF6+rVkLF/0Vi9U8D2Ntg4Ga5I5BZpVkVxlJWbSQtXPSiUTtC0TjtGOmxa1AJPuV0CPthew=="
+   		crossorigin=""></script>
+</div>
+
+<div>	
+<button id="reset" class="btn" type="button" style="position:absolute;left:10px;top:380px" onclick="script">Reset Position</button>
+<button id="new" class="btn" type="button" style="position:absolute;left:10px;top:420px" onclick="script">New Map</button>
+<button id="share" class="btn" type="button" style="position:absolute;left:10px;top:460px" onclick="script">Share Map</button>
+<button id="search" class="btn" type="button" style="position:absolute;left:10px;top:500px" onclick="script">Search Map</button>
+<button id="tools" class="btn" type="button" style="position:absolute;left:10px;top:540px" onclick="script">Tools</button>
+</div>
+</div>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>
