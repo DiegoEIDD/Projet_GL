@@ -40,10 +40,21 @@
     background: #268DFF;
 }
 
+.center-in-center {
+				position: absolute;
+				top: 50%;
+				left: 50%;
+				-webkit-transform: translate(-50%, -50%);
+				-moz-transform: translate(-50%, -50%);
+				-ms-transform: translate(-50%, -50%);
+				-o-transform: translate(-50%, -50%);
+				transform: translate(-50%, -50%);
+			}
+
 </style>
 </head>
 <body>
-<div style="background-color:#FAEBD7; width:245px">
+<div class="center-in-center" style="background-color:#FAEBD7; width:250px ;height:280px">
 <button type="button" class="btn1">X</button>
 <div class="container-fluid">
 	<div class="row-fluid">
