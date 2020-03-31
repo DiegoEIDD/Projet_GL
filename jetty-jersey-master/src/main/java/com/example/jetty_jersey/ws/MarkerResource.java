@@ -54,6 +54,8 @@ public class MarkerResource{
 		//actionMarker.getInstance().deleteMessage(msg);
 	}
 	
+//MODIF	
+/*
 	@GET
 	@Produces(MediaType.APPLICATION_JSON)
 	@Path("name")
@@ -63,6 +65,8 @@ public class MarkerResource{
 		Marker m = new Marker("Mark",pos);
 		return name;
 	}
+	
+*/
 	
 //	@GET
 //	@Produces(MediaType.APPLICATION_JSON)
