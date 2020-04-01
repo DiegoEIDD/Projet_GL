@@ -24,7 +24,7 @@ public class StubActionMarker implements com.example.datanucleus.DAO_Class.actio
 		//String name = "a";
 		Position pos = new Position(1,2);
 		String n = "Mark";
-		Marker m = new Marker(n,pos);
+		Marker m = new Marker(n,pos,7);
 		return m;
 	}
 

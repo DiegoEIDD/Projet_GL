@@ -75,9 +75,9 @@ public class MapResourceStub{
 	public boolean unshareMap(/*Maps m, User u*/) {
 		//actionMaps.getInstance().unshareMap(m,u);
 		//m.access.remove(u);
-		Maps m = new Maps("map");
+		Maps m = new Maps("map",17);
 		Access a = new Access();
-		User u = new User("juninho", "pernambucano",a);
+		User u = new User("juninho", "pernambucano",16);
 		StubActionMaps map = new StubActionMaps();
 		return map.unshareMap(m, u);
 	}
@@ -115,7 +115,7 @@ public class MapResourceStub{
 		StubActionMaps map = new StubActionMaps();
 		Position pos = new Position(1,2);
 		Duration dur = new Duration(9,3,2020,10);
-		map.addEvent("test", pos, dur);
+		map.addEvent("test", pos, dur,18);
 		return true;
 	}
 	
@@ -137,7 +137,7 @@ public class MapResourceStub{
 		//actionMaps.getInstance().deleteMarker(point);
 		//mark.remove(point);
 		StubActionMaps map = new StubActionMaps();
-		Marker m = new Marker(null, null);
+		Marker m = new Marker(null, null,19);
 		return map.deleteMarker(m);
 	}
 	
@@ -148,7 +148,7 @@ public class MapResourceStub{
 		//actionMaps.getInstance().deleteEvent(evt);
 		//ev.remove(evt);
 		StubActionMaps map = new StubActionMaps();
-		Event e = new Event(null, null, null);
+		Event e = new Event(null, null, null,20);
 		return map.deleteEvent(e);
 	}
 

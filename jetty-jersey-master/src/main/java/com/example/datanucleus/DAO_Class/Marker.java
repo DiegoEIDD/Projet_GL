@@ -18,11 +18,13 @@ public class Marker{
     public List<Image> picture;
     public List <String> message;
     public Position localisation;
+    public int id;
     
     public Marker(String n, Position l) {
     	this.name = n;
     	this.picture = new ArrayList<>();
     	this.message = new ArrayList<>();
     	this.localisation = l;
+    	this.id = i;
     }
 }

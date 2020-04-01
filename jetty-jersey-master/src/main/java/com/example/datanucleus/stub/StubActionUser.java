@@ -13,24 +13,24 @@ public class StubActionUser implements com.example.datanucleus.DAO_Class.actionU
 	@Override
 	public User getName() {
 		// TODO Auto-generated method stub
-		Access a = new Access();
-		User u = new User("juninho", "pernambucano",a);
+		//Access a = new Access();
+		User u = new User("juninho", "pernambucano",8);
 		return u;
 	}
 
 	@Override
 	public User getPassword() {
 		// TODO Auto-generated method stub
-		Access a = new Access();
-		User u = new User("juninho", "pernambucano",a);
+		//Access a = new Access();
+		User u = new User("juninho", "pernambucano",9);
 		return u;
 	}
 
 	@Override
 	public List<Maps> getMaps() {
 		// TODO Auto-generated method stub
-		Maps map1 = new Maps("Jason");
-		Maps map2 = new Maps("Anthony");
+		Maps map1 = new Maps("Jason",10);
+		Maps map2 = new Maps("Anthony",11);
 		List <Maps> lMaps = new ArrayList<>();
 		lMaps.add(map1);
 		lMaps.add(map2);
@@ -40,8 +40,8 @@ public class StubActionUser implements com.example.datanucleus.DAO_Class.actionU
 	@Override
 	public List<Maps> getAcess() {
 		// TODO Auto-generated method stub
-		Maps map1 = new Maps("Bruno");
-		Maps map2 = new Maps("Moussa");
+		Maps map1 = new Maps("Bruno",12);
+		Maps map2 = new Maps("Moussa",13);
 		List <Maps> lMaps = new ArrayList<>();
 		lMaps.add(map1);
 		lMaps.add(map2);
@@ -70,8 +70,8 @@ public class StubActionUser implements com.example.datanucleus.DAO_Class.actionU
 	@Override
 	public List<Maps> restrictedMapList(String search) {
 		// TODO Auto-generated method stub
-		Maps map1 = new Maps("Carl");
-		Maps map2 = new Maps("Houssem");
+		Maps map1 = new Maps("Carl",14);
+		Maps map2 = new Maps("Houssem",15);
 		List <Maps> lMaps = new ArrayList<>();
 		lMaps.add(map1);
 		lMaps.add(map2);

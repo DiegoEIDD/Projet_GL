@@ -17,8 +17,8 @@ public class StubActionMaps implements com.example.datanucleus.DAO_Class.actionM
 	@Override
 	public User getName() {
 		// TODO Auto-generated method stub
-		Access a = new Access();
-		User user1 = new User("Bruno","Guimaraes",a);
+		//Access a = new Access();
+		User user1 = new User("Bruno","Guimaraes",0);
 		return user1;
 	}
 
@@ -26,8 +26,8 @@ public class StubActionMaps implements com.example.datanucleus.DAO_Class.actionM
 	public List<Marker> getMarker() {
 		// TODO Auto-generated method stub
     	Position pos = new Position(1,2);
-		Marker mark1 = new Marker("Mark1", pos);
-		Marker mark2 = new Marker("Mark2", pos);
+		Marker mark1 = new Marker("Mark1", pos,1);
+		Marker mark2 = new Marker("Mark2", pos,2);
 		List <Marker> lMark = new ArrayList<>();
 		lMark.add(mark1);
 		lMark.add(mark2);
@@ -37,9 +37,9 @@ public class StubActionMaps implements com.example.datanucleus.DAO_Class.actionM
 	@Override
 	public List<User> getAcess() {
 		// TODO Auto-generated method stub
-		Access a = new Access();
-		User user1 = new User("Bruno","Guimaraes",a);
-		User user2 = new User("Moussa","Dembele",a);
+		//Access a = new Access();
+		User user1 = new User("Bruno","Guimaraes",3);
+		User user2 = new User("Moussa","Dembele",4);
 		List <User> lUser = new ArrayList<>();
 		lUser.add(user1);
 		lUser.add(user2);
@@ -52,8 +52,8 @@ public class StubActionMaps implements com.example.datanucleus.DAO_Class.actionM
 		//return m.ev;
     	Duration dur = new Duration(9,3,2020,10);
     	Position pos = new Position(1,2);
-		Event ev1 = new Event(dur,"Event1",pos);
-		Event ev2 = new Event(dur,"Event2",pos);
+		Event ev1 = new Event(dur,"Event1",pos,5);
+		Event ev2 = new Event(dur,"Event2",pos,6);
 		List <Event> lEvent = new ArrayList<>();
 		lEvent.add(ev1);
 		lEvent.add(ev2);

@@ -17,12 +17,14 @@ public class Maps{
     public List <Marker> mark;
     public List <Event> ev;
     public List <User> access;
+    public int id;
     
     public Maps(String n) {
     	this.name = n;
     	this.mark = new ArrayList<>();
     	this.ev = new ArrayList<>();
     	this.access = new ArrayList<>();
+    	this.id = i;
     }
     
 }

@@ -23,11 +23,13 @@ public class User{
 	 //Access: list de maps
 	 public Access acc;
 	 //public Position localisation;
+	 public int id;
 	 
-	 public User(String n, String p, Access a) {
+	 public User(String n, String p, int i) {
 		 this.name = n;
 		 this.password = p;
 		 this.map = new ArrayList<>();
-		 this.acc = a;
+		 //this.acc = a;
+		 this.id = i;
 	 }
 }
