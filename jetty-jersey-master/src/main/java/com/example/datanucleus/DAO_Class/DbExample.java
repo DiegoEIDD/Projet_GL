@@ -60,7 +60,7 @@ public class DbExample {
 	        while(rs.next()){
 	        	contacts.add(new User(
 	        			rs.getString(1), 
-	        			rs.getString(2), 
+	        			rs.getString(2)
 	        		)
     			);
 	        }

@@ -1,0 +1,147 @@
+<!--link href="css/home.css" rel="stylesheet" id="bootstrap-css"-->
+<!-- Include the above in your HEAD tag -->
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Planny</title>   
+    <link rel="icon" type="image/png" href="../Bootstrap/img/logo.png">
+	<!--Bootsrap 4 CDN-->
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+	
+    <!--Fontawesome CDN-->
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+
+	<!--Custom styles-->
+    <link rel="stylesheet" type="text/css" href="../Bootstrap/css/mapStyle.css">
+
+</head>
+<body>
+
+    <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #e43e32;">
+        <a class="navbar-brand">
+            <img src="../Bootstrap/img/logo.png" width="30" height="30" class="d-inline-block align-top" alt="">
+            <strong class="script_tab_color">Planny</strong>
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+      
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+              <a class="nav-link" href="../Bootstrap/map.html"><strong class="script_tab_color">Home</strong></a>
+            </li>
+            <li class="nav-item active">
+                <a class="nav-link" href="../Bootstrap/map.html"><strong class="script_tab_color">Maps</strong></a>
+            </li>
+            <li class="nav-item active">
+                <a class="nav-link" href="../Bootstrap/map.html"><strong class="script_tab_color">Friends</strong></a>
+            </li>
+          </ul>
+          <form class="form-inline my-2 my-lg-0">
+            <a class="btn logout_btn" href="../Bootstrap/home.html" type="submit">Log Out</a>
+          </form>
+        </div>
+    </nav>
+
+        <div class="page-wrapper chiller-theme toggled">
+            <!--a id="show-sidebar" class="btn btn-sm btn-dark" style="background-color:#e43e32; color:rgb(24, 43, 57);" href="#"-->
+            <a id="show-sidebar" class="btn btn-sm btn-dark showBar_btn" href="#">
+              <i class="fas fa-bars"></i>
+            </a>
+            <nav id="sidebar" class="sidebar-wrapper">
+              <div class="sidebar-content">
+                <div class="sidebar-brand">
+                  <a href="#">Sidebar</a>
+                  <div id="close-sidebar">
+                    <i class="fas fa-times"></i>
+                  </div>
+                </div>
+
+                <!-- sidebar-search  -->
+                <div class="sidebar-menu">
+                  <ul>
+                    <!--li class="header-menu">
+                      <span>General</span>
+                    </li-->
+                    <li>
+                        <a href="#">
+                            <p style="text-align:center">
+                                <img src="../Bootstrap/img/itinerary.png" width="55" height="55" alt="">
+                            <!--i class="fa fa-tachometer-alt"></i>
+                            <span>Dashboard</span>
+                            <span class="badge badge-pill badge-warning">New</span-->
+                            </p>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <p style="text-align:center">
+                                <img src="../Bootstrap/img/marker.png" width="55" height="55" alt="">
+                            </p>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <p style="text-align:center">
+                                <img src="../Bootstrap/img/event.png" width="55" height="55" alt="">
+                            </p>
+                        </a>
+                    </li>
+                    <li>
+                      <a href="#">
+                        <i class="fa fa-envelope"></i>
+                        <span>Share Map</span>
+                        <!--span class="badge badge-pill badge-danger">3</span-->
+                      </a>
+                    </li>
+                    <li>
+                      <a href="#">
+                        <i class="far fa-circle"></i>
+                        <span>Search Map</span>
+                      </a>
+                    </li>
+                    <li class="sidebar-dropdown">
+                      <a href="#">
+                        <i class="fa fa-cog"></i>
+                        <span>Tools</span>
+                      </a>
+                      <div class="sidebar-submenu">
+                        <ul>
+                          <li>
+                            <a href="#">Map Editor</a>
+                          </li>
+                          <li>
+                            <a href="#">Settings</a>
+                          </li>
+                        </ul>
+                      </div>
+                    </li>
+
+                <!-- sidebar-menu  -->
+              </div>
+            </nav>
+              
+            <div id="main">
+                <link rel="stylesheet" href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css"
+                integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ=="
+                crossorigin=""/>
+        
+                <div id="mapleflet1"></div>
+            </div>
+        </div>
+        
+
+            <script type="text/javascript" src="https://code.jquery.com/jquery-2.2.0.min.js"></script>
+	        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3/underscore-min.js"></script>
+	     	<script type="text/javascript" src="leaflet.js"></script>
+		    <script src="https://unpkg.com/leaflet@1.6.0/dist/leaflet.js"
+   	     	integrity="sha512-gZwIG9x3wUXg2hdXF6+rVkLF/0Vi9U8D2Ntg4Ga5I5BZpVkVxlJWbSQtXPSiUTtC0TjtGOmxa1AJPuV0CPthew=="
+               crossorigin=""></script>
+
+			<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+			<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+			<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+</body>
+</html>
