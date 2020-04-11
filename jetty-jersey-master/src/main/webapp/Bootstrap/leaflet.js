@@ -13,7 +13,7 @@ $(function (){
 		}).addTo(mymap);
 
 		var marker = L.marker([48.8278364, 2.3806668]).addTo(mymap);
-		marker.bindPopup("<b>Marker</b><br>Blabla").openPopup();
+		marker.bindPopup("<b>EIDD</b><br>Paris Diderot").openPopup();
 });
 
 jQuery(function ($) {
@@ -49,17 +49,3 @@ $("#show-sidebar").click(function() {
   document.getElementById("main").style.marginLeft = "260px";
 });
 });
-
-/* Set the width of the side navigation to 250px and the left margin of the page content to 250px 
-function openNav() {
-  document.getElementById("mySidenav").style.width = "250px";
-  document.getElementById("myMiniSidenav").style.width = "100px";
-  document.getElementById("main").style.marginLeft = "250px";
-}
-
-/* Set the width of the side navigation to 0 and the left margin of the page content to 0 
-function closeNav() {
-  document.getElementById("mySidenav").style.width = "0";
-  document.getElementById("myMiniSidenav").style.width = "0";
-  document.getElementById("main").style.marginLeft = "0";
-}*/

@@ -6,8 +6,9 @@ background-color: rgb(24, 43, 57);
 background-size: cover;
 background-repeat: no-repeat;
 /*height: 100%;*/
-min-height: 100vh;
-overflow: hidden;
+/*min-height: 100vh;*/
+/*overflow: hidden;*/
+max-height: calc(100% - 56px);
 font-family: 'Numans', sans-serif;
 }
 
@@ -19,7 +20,7 @@ font-family: 'Numans', sans-serif;
     left: 150px;*/
     top: auto;
     /*bottom: auto;*/
-    min-height: 100vh;
+    min-height: calc(100vh - 56px);
     min-width: 100vh;
 }
 
@@ -89,7 +90,7 @@ font-family: 'Numans', sans-serif;
   /*----------------page-wrapper----------------*/
   
   .page-wrapper {
-    height: 100vh;
+    height: calc(100% - 56px);
   }
   
   .page-wrapper .theme {
@@ -109,6 +110,8 @@ font-family: 'Numans', sans-serif;
   .page-wrapper.toggled .sidebar-wrapper {
     left: 0px;
     top: auto;
+    /*max-height: 100vh;
+    position: fixed;*/
   }
   
   @media screen and (min-width: 768px) {
@@ -153,8 +156,9 @@ font-family: 'Numans', sans-serif;
   /*----------------sidebar-content----------------*/
   
   .sidebar-content {
-    max-height: calc(100% - 30px);
-    height: calc(100% - 30px);
+    /*max-height: calc(100% - 30px);
+    height: calc(100% - 30px);*/
+    max-height: 100vh;
     overflow-y: auto;
     position: relative;
     /*top: auto;*/
@@ -407,9 +411,6 @@ font-family: 'Numans', sans-serif;
   }
   
   .chiller-theme .sidebar-footer {
-      /*background: #3a3f48;
-      box-shadow: 0px -1px 5px #282c33;
-      border-top: 1px solid #464a52;*/
       background: #3a3f48;
       box-shadow: 0px -1px 5px #282c33;
       border-top: 1px solid #464a52;
@@ -433,12 +434,36 @@ font-family: 'Numans', sans-serif;
 }
 
 
+.img_rotate:hover{
+  animation: swing ease-in-out 0.5s 1 alternate;
+}
+
 
 
 .script_tab_color{
     color: rgb(24, 43, 57);
+    font-size: 16px;
     /*font-weight: bold;*/
 }
+.script_tab_color:hover{
+  color: rgb(24, 43, 57);
+  font-weight: bold;
+  font-size: 16px;
+  /*font-weight: bold;*/
+}
+
+/*Search bar*/
+.form-control:focus {
+  border-color: #e43e32;
+  box-shadow: 0 1px 1px #bb2f25 inset, 0 0 8px #e43e32;
+}
+
+.btn:hover{
+    color: white;
+    border-color: transparent;
+    background-color: rgb(24, 43, 57);
+}
+
 
 .logout_btn{
     color: rgb(24, 43, 57);
@@ -452,4 +477,27 @@ font-family: 'Numans', sans-serif;
 .logout_btn:hover{
     color: white;
     background-color: rgb(24, 43, 57);
+}
+
+
+.delete_btn{
+  color: whitesmoke;
+  /*font-weight: bold;*/
+  text-align: right;
+  background-color: #3a3f48;
+  border-color: whitesmoke;
+  border-width: 1px;
+  font-size: 12px;
+  height: 30px;
+  width: 65px;
+  /*margin-left: 160px;*/
+  
+}
+.delete_btn:hover{
+  background-color: #3a3f48;
+  border-color: #e43e32;
+  color: #e43e32;
+}
+.delete_btn:focus{
+  box-shadow: none;
 }
