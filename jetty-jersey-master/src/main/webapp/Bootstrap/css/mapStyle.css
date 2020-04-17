@@ -25,7 +25,6 @@ font-family: 'Numans', sans-serif;
 }
 
 
-
 @keyframes swing {
     0% {
       transform: rotate(0deg);
@@ -500,4 +499,57 @@ font-family: 'Numans', sans-serif;
 }
 .delete_btn:focus{
   box-shadow: none;
+}
+
+
+.edit_btn{
+  color: whitesmoke;
+  /*font-weight: bold;*/
+  text-align: right;
+  background-color: #3a3f48;
+  border-color: whitesmoke;
+  border-width: 1px;
+  font-size: 12px;
+  height: 30px;
+  width: 51px;
+  /*margin-left: 160px;*/
+  
+}
+.edit_btn:hover{
+  background-color: #3a3f48;
+  border-color: #23f33f;
+  color: #23f33f;
+}
+.edit_btn:focus{
+  box-shadow: none;
+}
+
+
+.mapName{
+  color:whitesmoke;
+}
+.mapName:hover{
+  color:#e43e32;
+  text-decoration: none;
+}
+
+/*.select2-container .select2-selection--single{
+  height:34px !important;
+}
+.select2-container--default .select2-selection--single{
+   border: 1px solid #ccc !important; 
+   border-radius: 0px !important; 
+}*/
+
+.scrollable{
+  height:calc(95vh - 160px);
+  overflow: scroll;
+}
+.scrollable2{
+  height:calc(70vh - 160px);
+  overflow: scroll;
+}
+.notscroll{
+  height: 184px;
+  overflow: hidden;
 }

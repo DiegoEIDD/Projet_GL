@@ -18,6 +18,9 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/css/select2.min.css" rel="stylesheet" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/js/select2.min.js"></script>
+
 </head>
 <body>
 
@@ -49,37 +52,168 @@
     </nav>
 
 
-    <div class="container">
-        <input class="form-control" id="myInput" type="text" placeholder="Search Map.." style="background-color: rgb(24, 43, 57);color:white;margin-top: 50px;width:300px;">
-        <!--br-->
-        <table class="table" style="color: whitesmoke;width:300px;background-color: #3a3f48;margin-top: 1px;border-radius: 7px;overflow-x: hidden; overflow-y: scroll;">
-          <!--thead>
-            <tr>
-              <th>Map List</th>
-            </tr>
-          </thead-->
+  <div class="container">
+  <div class="row">
+    <div class="col-md-4">
+      <input class="form-control" id="myInput" type="text" placeholder="Search Map.." style="background-color: rgb(24, 43, 57);color:white;margin-top: 50px;">
+          <div class="scrollable">
+            <table class="table" style="color: whitesmoke;min-height:calc(95vh - 160px);background-color: #3a3f48;margin-top: 1px;border-radius: 7px;overflow: scroll;">
+                <tbody id="myTable">
+                  <tr>
+                      <td style="border-top: transparent;">
+                          <a href="#" type="input" class="mapName">Map1</a>
+                          <!--a class="btn delete_btn " href="#" type="submit">Delete</a-->
+                      </td>
+                  </tr>
+                  <tr>
+                      <td style="border-top: transparent;">
+                        <a href="#" type="input" class="mapName">Mappy2</a>
+                          <!--a class="btn delete_btn" href="#" type="submit">Delete</a-->
+                      </td>
+                  </tr>
+                  <tr>
+                      <td style="border-top: transparent;">
+                        <a href="#" type="input" class="mapName">Planny3</a>
+                          <!--a class="btn delete_btn" href="#" type="submit">Delete</a-->
+                      </td>
+                  </tr>
+                  <tr>
+                    <td style="border-top: transparent;">
+                      <a href="#" type="input" class="mapName">Plan</a>
+                        <!--a class="btn delete_btn" href="#" type="submit">Delete</a-->
+                    </td>
+                  </tr>
+                  <tr>
+                    <td style="border-top: transparent;">
+                      <a href="#" type="input" class="mapName">Demo</a>
+                        <!--a class="btn delete_btn" href="#" type="submit">Delete</a-->
+                    </td>
+                  </tr>
+                  <tr>
+                    <td style="border-top: transparent;">
+                      <a href="#" type="input" class="mapName">Demo</a>
+                        <!--a class="btn delete_btn" href="#" type="submit">Delete</a-->
+                    </td>
+                  </tr>
+                  <tr>
+                    <td style="border-top: transparent;">
+                      <a href="#" type="input" class="mapName">Demo</a>
+                        <!--a class="btn delete_btn" href="#" type="submit">Delete</a-->
+                    </td>
+                  </tr>
+                  <tr>
+                    <td style="border-top: transparent;">
+                      <a href="#" type="input" class="mapName">Demo</a>
+                        <!--a class="btn delete_btn" href="#" type="submit">Delete</a-->
+                    </td>
+                  </tr>
+                  <tr>
+                    <td style="border-top: transparent;">
+                      <a href="#" type="input" class="mapName">Demo</a>
+                        <!--a class="btn delete_btn" href="#" type="submit">Delete</a-->
+                    </td>
+                  </tr>
+                  <tr>
+                    <td style="border-top: transparent;">
+                      <a href="#" type="input" class="mapName">Demo</a>
+                        <!--a class="btn delete_btn" href="#" type="submit">Delete</a-->
+                    </td>
+                  </tr>
+                  <tr>
+                    <td style="border-top: transparent;">
+                      <a href="#" type="input" class="mapName">Demo</a>
+                        <!--a class="btn delete_btn" href="#" type="submit">Delete</a-->
+                    </td>
+                  </tr>
+                </tbody>
+            </table>
+        </div>   
+      </div>     
+
+      <div class="col-md-8" style="margin-top: 50px;">
+        <div class="row scrollable2">
+        <table class="table" style="color: whitesmoke;background-color: #3a3f48;border-radius: 7px;overflow: scroll;">
+          <thead>
+            <thead>
+              <tr>
+                <th scope="col" style="border-top: transparent;">Shared with...</th>
+              </tr>
+            </thead>
+          </thead>  
           <tbody id="myTable">
-            <tr>
+              <tr>
+                  <td style="border-top: transparent;">
+                    <!--button onclick="remove_update(event)">Remove</button-->
+                      <a href="#" type="input" class="mapName">Friend1</a>
+                      <!--a class="btn delete_btn" href="#" type="submit" style="position: absolute;width: 76px;margin-left: calc(100vh - 76px);">Unshare</a-->
+                  </td>
+              </tr>
+              <tr>
+                  <td style="border-top: transparent;">
+                    <a href="#" type="input" class="mapName">Friend2</a>
+                      <!--a class="btn delete_btn" href="#" type="submit">Delete</a-->
+                  </td>
+              </tr>
+              <tr>
+                  <td style="border-top: transparent;">
+                    <a href="#" type="input" class="mapName">Friend3</a>
+                      <!--a class="btn delete_btn" href="#" type="submit">Delete</a-->
+                  </td>
+              </tr>
+              <tr>
                 <td style="border-top: transparent;">
-                    Map1
-                    <a class="btn delete_btn " href="#" type="submit">Delete</a>
+                  <a href="#" type="input" class="mapName">Friend4</a>
+                    <!--a class="btn delete_btn" href="#" type="submit">Delete</a-->
                 </td>
-            </tr>
-            <tr>
+              </tr>
+              <tr>
                 <td style="border-top: transparent;">
-                    Mappy2
-                    <a class="btn delete_btn" href="#" type="submit">Delete</a>
+                  <a href="#" type="input" class="mapName">Friend5</a>
+                    <!--a class="btn delete_btn" href="#" type="submit">Delete</a-->
                 </td>
-            </tr>
-            <tr>
+              </tr>
+              <tr>
                 <td style="border-top: transparent;">
-                    Planny3
-                    <a class="btn delete_btn" href="#" type="submit">Delete</a>
+                  <a href="#" type="input" class="mapName">Amigo6</a>
+                    <!--a class="btn delete_btn" href="#" type="submit">Delete</a-->
                 </td>
-            </tr>
-          </tbody>
-        </table>
-    </div>
+              </tr>
+              <tr>
+                <td style="border-top: transparent;">
+                  <a href="#" type="input" class="mapName">BROOOOOOO</a>
+                    <!--a class="btn delete_btn" href="#" type="submit">Delete</a-->
+                </td>
+              </tr>
+              <tr>
+                <td style="border-top: transparent;">
+                  <a href="#" type="input" class="mapName">Friend8</a>
+                    <!--a class="btn delete_btn" href="#" type="submit">Delete</a-->
+                </td>
+              </tr>
+              <tr>
+                <td style="border-top: transparent;">
+                  <a href="#" type="input" class="mapName">Friend9</a>
+                    <!--a class="btn delete_btn" href="#" type="submit">Delete</a-->
+                </td>
+              </tr>
+            </tbody>
+        </table>   
+      </div>
+        
+        <div class="row notscroll">
+          <div class="col-md" style="background-color: #3a3f48;border-radius: 7px;">
+            <a class="btn edit_btn" href="#" type="submit" style="position: absolute;margin-left: 90vh;margin-top: 27px;">Edit</a>
+            <a class="btn delete_btn" href="#" type="submit" style="position: absolute;margin-left: 90vh;margin-top: 77px;">Delete</a>
+            <a class="btn delete_btn" href="#" type="submit" style="position: absolute;width:77px;margin-left: 90vh;margin-top: 127px;">Unshare</a>
+            <p style="width: 80vh;margin-left:20px;margin-top: 77px;color: whitesmoke;">
+              Le nom de la map ou de l'ami selectionné s'affiche ici.
+            </p>
+          </div>
+        </div>  
+    <!--div class="col-md-2" style="background-color: #3a3f48;margin-top: 50px;height:calc(60vh - 160px);">
+      
+    </div-->
+  </div>
 
     <script>
         $(document).ready(function(){
@@ -91,6 +225,9 @@
           });
         });
     </script>
+ 
+  </div>
+
 
         
 
