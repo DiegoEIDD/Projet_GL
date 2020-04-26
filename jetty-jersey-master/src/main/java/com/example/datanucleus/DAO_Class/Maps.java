@@ -19,7 +19,7 @@ public class Maps{
     public List <User> access;
     public int id;
     
-    public Maps(String n) {
+    public Maps(String n, int i) {
     	this.name = n;
     	this.mark = new ArrayList<>();
     	this.ev = new ArrayList<>();

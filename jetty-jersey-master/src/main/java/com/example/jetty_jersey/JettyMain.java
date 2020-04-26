@@ -16,6 +16,7 @@ import org.glassfish.jersey.servlet.ServletContainer;
 public class JettyMain {
 
 	public static void main(String[] args) throws Exception {
+
 		// Initialize the server
 		Server server = new Server();
 

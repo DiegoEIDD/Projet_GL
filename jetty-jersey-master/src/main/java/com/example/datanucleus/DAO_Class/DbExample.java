@@ -1,4 +1,4 @@
-package com.example.HSQLdemo;
+package com.example.datanucleus.DAO_Class;
 
 import java.io.File;
 import java.sql.Connection;
@@ -60,7 +60,8 @@ public class DbExample {
 	        while(rs.next()){
 	        	contacts.add(new User(
 	        			rs.getString(1), 
-	        			rs.getString(2)
+	        			rs.getString(2),
+	        			rs.getInt(3)
 	        		)
     			);
 	        }

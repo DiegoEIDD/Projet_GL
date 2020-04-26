@@ -1,3 +1,5 @@
+package com.example.HSQLdemo;
+
 import java.sql.Connection;
 import java.sql.DriverManager;
 

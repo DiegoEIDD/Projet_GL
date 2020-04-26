@@ -1,3 +1,5 @@
+package com.example.HSQLdemo;
+
 import org.hsqldb.util.DatabaseManagerSwing;
 
 public class RunGUI {
