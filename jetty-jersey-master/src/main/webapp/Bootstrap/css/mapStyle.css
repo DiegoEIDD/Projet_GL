@@ -533,6 +533,14 @@ font-family: 'Numans', sans-serif;
   text-decoration: none;
 }
 
+.markName{
+  color:black;
+}
+.markName:hover{
+  color:#e43e32;
+  text-decoration: none;
+}
+
 /*.select2-container .select2-selection--single{
   height:34px !important;
 }

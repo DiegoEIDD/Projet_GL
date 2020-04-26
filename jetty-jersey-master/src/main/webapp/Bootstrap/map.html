@@ -99,14 +99,14 @@
                         </a>
                     </li>
                     <li>
-                      <a href="#">
+                      <a href="#" data-toggle="modal" data-target="#shareMap" data-whatever="@mdo">
                         <i class="fa fa-envelope"></i>
                         <span>Share Map</span>
                         <!--span class="badge badge-pill badge-danger">3</span-->
                       </a>
                     </li>
                     <li>
-                      <a href="#">
+                      <a href="#" data-toggle="modal" data-target="#newMap" data-whatever="@mdo">
                         <i class="far fa-circle"></i>
                         <span>Create New Map</span>
                       </a>
@@ -119,10 +119,10 @@
                       <div class="sidebar-submenu">
                         <ul>
                           <li>
-                            <a href="#">Map Editor</a>
+                            <a href="#" data-toggle="modal" data-target="#editMap" data-whatever="@mdo">Map Editor</a>
                           </li>
                           <li>
-                            <a href="#">Settings</a>
+                            <a href="#" data-toggle="modal" data-target="#settings" data-whatever="@mdo">Settings</a>
                           </li>
                         </ul>
                       </div>
@@ -131,6 +131,189 @@
                 <!-- sidebar-menu  -->
               </div>
             </nav>
+
+            <div class="modal fade" id="shareMap" tabindex="-1" role="dialog" aria-labelledby="shareMapLabel" aria-hidden="true">
+              <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h5 class="modal-title" id="shareMapLabel">Share Map</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                      <span aria-hidden="true">&times;</span>
+                    </button>
+                  </div>
+                  <div class="modal-body">
+                    <form>
+                      <div class="form-group">
+                        <label for="recipient-name" class="col-form-label">Friend username:</label>
+                        <input type="text" class="form-control" id="recipient-name">
+                      </div>
+                      <div class="form-group">
+                        <label for="message-text" class="col-form-label">Message:</label>
+                        <textarea class="form-control" id="message-text"></textarea>
+                      </div>
+                    </form>
+                  </div>
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary">Share Map</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="modal fade" id="newMap" tabindex="-1" role="dialog" aria-labelledby="newMapLabel" aria-hidden="true">
+              <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h5 class="modal-title" id="newMapLabel">Create New Map</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                      <span aria-hidden="true">&times;</span>
+                    </button>
+                  </div>
+                  <div class="modal-body">
+                    <form>
+                      <div class="form-group">
+                        <label for="recipient-name" class="col-form-label">Map Name:</label>
+                        <input type="text" class="form-control" id="recipient-name">
+                      </div>
+                      <div class="form-group">
+                        <label for="message-text" class="col-form-label">Description:</label>
+                        <textarea class="form-control" id="message-text"></textarea>
+                      </div>
+                    </form>
+                  </div>
+                  <div class="form-check" style="margin-left: 25px;margin-bottom: 5px;">
+                    <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option1" checked>
+                    <label class="form-check-label" for="exampleRadios1">
+                      Public
+                    </label>
+                  </div>
+                  <div class="form-check" style="margin-left: 25px;margin-bottom: 5px;">
+                    <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios2" value="option2">
+                    <label class="form-check-label" for="exampleRadios2">
+                      Private
+                    </label>
+                  </div>
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary">Create Map</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="modal fade" id="editMap" tabindex="-1" role="dialog" aria-labelledby="editMapLabel" aria-hidden="true">
+              <div class="modal-dialog modal-lg" role="document">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h5 class="modal-title" id="editMapLabel">Edit Map</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                      <span aria-hidden="true">&times;</span>
+                    </button>
+                  </div>
+                  <div class="modal-body">
+                    <form>
+                      <div class="form-group">
+                        <label for="recipient-name" class="col-form-label">Map Name:</label>
+                        <input type="text" placeholder="Actual Name" class="form-control" id="recipient-name">
+                      </div>
+                     
+                      <label for="recipient-name" class="col-form-label">Edit Marker:</label>
+                      <div class="scrollable" style="height: 90px;background-color: #ced4da;border-radius: 7px;">
+                        <table class="table" style="overflow: scroll;">
+                            <tbody id="myTable">
+                              <tr>
+                                  <td style="border-top: transparent;">
+                                      <a href="#" type="input" class="markName">Marker1</a>
+                                  </td>
+                              </tr>
+                              <tr>
+                                  <td style="border-top: transparent;">
+                                    <a href="#" type="input" class="markName">Marker2</a>
+                                  </td>
+                              </tr>
+                              <tr>
+                                  <td style="border-top: transparent;">
+                                    <a href="#" type="input" class="markName">Marker3</a>
+                                  </td>
+                              </tr>
+                            </tbody>
+                        </table>
+                    </div>  
+
+                    <label for="recipient-name" class="col-form-label">Edit Event:</label>
+                      <div class="scrollable" style="height: 90px;background-color: #ced4da;border-radius: 7px;">
+                        <table class="table" style="overflow: scroll;">
+                            <tbody id="myTable">
+                              <tr>
+                                  <td style="border-top: transparent;">
+                                      <a href="#" type="input" class="markName">Event1</a>
+                                  </td>
+                              </tr>
+                              <tr>
+                                  <td style="border-top: transparent;">
+                                    <a href="#" type="input" class="markName">Event2</a>
+                                  </td>
+                              </tr>
+                              <tr>
+                                  <td style="border-top: transparent;">
+                                    <a href="#" type="input" class="markName">Event3</a>
+                                  </td>
+                              </tr>
+                            </tbody>
+                        </table>
+                    </div>  
+
+                    <div class="form-check" style="margin-left: 7px;margin-bottom: 5px;margin-top: 5px;">
+                      <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option1" checked>
+                      <label class="form-check-label" for="exampleRadios1">
+                        Public
+                      </label>
+                    </div>
+                    <div class="form-check" style="margin-left: 7px;margin-bottom: 5px;">
+                      <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios2" value="option2">
+                      <label class="form-check-label" for="exampleRadios2">
+                        Private
+                      </label>
+                    </div>
+
+                    </form>
+                  </div>
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <!--button type="button" class="btn btn-primary">Send message</button-->
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="modal fade" id="settings" tabindex="-1" role="dialog" aria-labelledby="settingsLabel" aria-hidden="true">
+              <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Settings</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                      <span aria-hidden="true">&times;</span>
+                    </button>
+                  </div>
+                  <div class="modal-body">
+                    <form>
+                      <div class="form-group">
+                        <label for="recipient-name" class="col-form-label">Username:</label>
+                        <input type="text" placeholder="Actual Name" class="form-control" id="recipient-name">
+                      </div>
+                      <div class="form-group">
+                        <label for="recipient-name" class="col-form-label">Email address:</label>
+                        <input type="text" placeholder="Actual email adress" class="form-control" id="recipient-name">
+                      </div>
+                    </form>
+                  </div>
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                  </div>
+                </div>
+              </div>
+            </div>
               
             <div id="main">
                 <link rel="stylesheet" href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css"
