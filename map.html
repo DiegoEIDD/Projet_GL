@@ -1,0 +1,419 @@
+<!--link href="css/home.css" rel="stylesheet" id="bootstrap-css"-->
+<!-- Include the above in your HEAD tag -->
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    
+    <title>Planny</title>   
+    <link rel="icon" type="image/png" href="../Bootstrap/img/logo.png">
+  
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css" integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ==" crossorigin=""/>
+    <!--Bootsrap 4 CDN-->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    
+      <!--Fontawesome CDN-->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+
+    <!-- Ces deux balises link sont à insérer entre les deux balises existantes -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet-routing-machine@latest/dist/leaflet-routing-machine.css" />
+    <link rel="stylesheet" href="https://unpkg.com/leaflet-control-geocoder/dist/Control.Geocoder.css" />
+
+    <!--Custom styles-->
+    <link rel="stylesheet" type="text/css" href="../Bootstrap/css/mapStyle.css">
+    
+</head>
+<body>
+
+    <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #e43e32;">
+        <a class="navbar-brand">
+            <img src="../Bootstrap/img/logo.png" width="30" height="30" class="d-inline-block align-top" alt="">
+            <strong class="script_tab_color" style="font-size: 20px;">Planny</strong>
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+      
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+              <a class="nav-link" href="../Bootstrap/map.html"><strong class="script_tab_color">Home</strong></a>
+            </li>
+            <li class="nav-item active">
+                <a class="nav-link" href="../Bootstrap/mapsMenu.html"><span class="script_tab_color">Maps</span></a>
+            </li>
+            <li class="nav-item active">
+                <a class="nav-link" href="../Bootstrap/friends.html"><span class="script_tab_color">Friends</span></a>
+            </li>
+          </ul>
+          <form class="form-inline my-2 my-lg-0">
+            <a class="btn logout_btn" href="../Bootstrap/home.html" type="submit">Log Out</a>
+          </form>
+        </div>
+    </nav>
+
+        <div class="page-wrapper chiller-theme toggled">
+            <!--a id="show-sidebar" class="btn btn-sm btn-dark" style="background-color:#e43e32; color:rgb(24, 43, 57);" href="#"-->
+            <a id="show-sidebar" class="btn btn-sm btn-dark showBar_btn" href="#">
+              <i class="fas fa-bars"></i>
+            </a>
+            <nav id="sidebar" class="sidebar-wrapper">
+              <div class="sidebar-content">
+                <div class="sidebar-brand">
+                  <a href="#">Sidebar</a>
+                  <div id="close-sidebar">
+                    <i class="fas fa-times"></i>
+                  </div>
+                </div>
+
+                <!-- sidebar-search  -->
+                <div class="sidebar-menu">
+                  <ul>
+                    <!--li class="header-menu">
+                      <span>General</span>
+                    </li-->
+                    <li>
+                        <a href="#">
+                            <p style="text-align:center">
+                                <img src="../Bootstrap/img/itinerary.png" class="img_rotate" width="55" height="55" alt="">
+                            <!--i class="fa fa-tachometer-alt"></i>
+                            <span>Dashboard</span>
+                            <span class="badge badge-pill badge-warning">New</span-->
+                            </p>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <p style="text-align:center">
+                                <img src="../Bootstrap/img/marker.png" id="mar" class="img_rotate" width="55" height="55" alt="">
+                            </p>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <p style="text-align:center">
+                                <img src="../Bootstrap/img/event.png" class="img_rotate" width="55" height="55" alt="">
+                            </p>
+                        </a>
+                    </li>
+                    <li>
+                      <a href="#" data-toggle="modal" data-target="#shareMap" data-whatever="@mdo">
+                        <i class="fa fa-envelope"></i>
+                        <span>Share Map</span>
+                        <!--span class="badge badge-pill badge-danger">3</span-->
+                      </a>
+                    </li>
+                    <li>
+                      <a href="#" data-toggle="modal" data-target="#newMap" data-whatever="@mdo">
+                        <i class="far fa-circle"></i>
+                        <span>Create New Map</span>
+                      </a>
+                    </li>
+                    <li class="sidebar-dropdown">
+                      <a href="#">
+                        <i class="fa fa-cog"></i>
+                        <span>Tools</span>
+                      </a>
+                      <div class="sidebar-submenu">
+                        <ul>
+                          <li>
+                            <a href="#" data-toggle="modal" data-target="#editMap" data-whatever="@mdo">Map Editor</a>
+                          </li>
+                          <li>
+                            <a href="#" data-toggle="modal" data-target="#settings" data-whatever="@mdo">Settings</a>
+                          </li>
+                        </ul>
+                      </div>
+                    </li>
+
+                <!-- sidebar-menu  -->
+              </div>
+            </nav>
+
+            <div class="modal fade" id="shareMap" tabindex="-1" role="dialog" aria-labelledby="shareMapLabel" aria-hidden="true">
+              <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h5 class="modal-title" id="shareMapLabel">Share Map</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                      <span aria-hidden="true">&times;</span>
+                    </button>
+                  </div>
+                  <div class="modal-body">
+                    <form>
+                      <div class="form-group">
+                        <label for="recipient-name" class="col-form-label">Friend username:</label>
+                        <input type="text" class="form-control" id="recipient-name">
+                      </div>
+                      <div class="form-group">
+                        <label for="message-text" class="col-form-label">Message:</label>
+                        <textarea class="form-control" id="message-text"></textarea>
+                      </div>
+                    </form>
+                  </div>
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary">Share Map</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="modal fade" id="addName" tabindex="-1" role="dialog" aria-labelledby="addNameLabel" aria-hidden="true">
+              <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h5 class="modal-title" id="addNameLabel">Add name to marker</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                      <span aria-hidden="true">&times;</span>
+                    </button>
+                  </div>
+                  <div class="modal-body">
+                    <form>
+                      <div class="form-group">
+                        <label for="recipient-name" class="col-form-label">Name:</label>
+                        <input type="text" class="form-control" id="markername">
+                      </div>
+                    </form>
+                  </div>
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary" onclick="changeName()">Add</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+            <div class="modal fade" id="addMessage" tabindex="-1" role="dialog" aria-labelledby="addMessageLabel" aria-hidden="true">
+              <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h5 class="modal-title" id="addMessageLabel">Add message to marker</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                      <span aria-hidden="true">&times;</span>
+                    </button>
+                  </div>
+                  <div class="modal-body">
+                    <form>
+                      <div class="form-group">
+                        <label for="message-text" class="col-form-label">Message:</label>
+                        <textarea class="form-control" id="message-text"></textarea>
+                      </div>
+                    </form>
+                  </div>
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary">Add</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="modal fade" id="addImage" tabindex="-1" role="dialog" aria-labelledby="addImageLabel" aria-hidden="true">
+              <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h5 class="modal-title" id="addMessageLabel">Add image to marker</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                      <span aria-hidden="true">&times;</span>
+                    </button>
+                  </div>
+                  <div class="modal-body">
+                    <form>
+                      <div class="col-lg-3">
+                        <input id="uploadPicture" name="file" type="file" multiple=true class="file-loading">
+                    </div>
+                    </form>
+                  </div>
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary">Add</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="modal fade" id="newMap" tabindex="-1" role="dialog" aria-labelledby="newMapLabel" aria-hidden="true">
+              <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h5 class="modal-title" id="newMapLabel">Create New Map</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                      <span aria-hidden="true">&times;</span>
+                    </button>
+                  </div>
+                  <div class="modal-body">
+                    <form>
+                      <div class="form-group">
+                        <label for="recipient-name" class="col-form-label">Map Name:</label>
+                        <input type="text" class="form-control" id="recipient-name">
+                      </div>
+                      <div class="form-group">
+                        <label for="message-text" class="col-form-label">Description:</label>
+                        <textarea class="form-control" id="message-text"></textarea>
+                      </div>
+                    </form>
+                  </div>
+                  <div class="form-check" style="margin-left: 25px;margin-bottom: 5px;">
+                    <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option1" checked>
+                    <label class="form-check-label" for="exampleRadios1">
+                      Public
+                    </label>
+                  </div>
+                  <div class="form-check" style="margin-left: 25px;margin-bottom: 5px;">
+                    <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios2" value="option2">
+                    <label class="form-check-label" for="exampleRadios2">
+                      Private
+                    </label>
+                  </div>
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary">Create Map</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="modal fade" id="editMap" tabindex="-1" role="dialog" aria-labelledby="editMapLabel" aria-hidden="true">
+              <div class="modal-dialog modal-lg" role="document">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h5 class="modal-title" id="editMapLabel">Edit Map</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                      <span aria-hidden="true">&times;</span>
+                    </button>
+                  </div>
+                  <div class="modal-body">
+                    <form>
+                      <div class="form-group">
+                        <label for="recipient-name" class="col-form-label">Map Name:</label>
+                        <input type="text" placeholder="Actual Name" class="form-control" id="recipient-name">
+                      </div>
+                     
+                      <label for="recipient-name" class="col-form-label">Edit Marker:</label>
+                      <div class="scrollable" style="height: 90px;background-color: #ced4da;border-radius: 7px;">
+                        <table class="table" style="overflow: scroll;">
+                            <tbody id="myTable">
+                              <tr>
+                                  <td style="border-top: transparent;">
+                                      <a href="#" type="input" class="markName">Marker1</a>
+                                  </td>
+                              </tr>
+                              <tr>
+                                  <td style="border-top: transparent;">
+                                    <a href="#" type="input" class="markName">Marker2</a>
+                                  </td>
+                              </tr>
+                              <tr>
+                                  <td style="border-top: transparent;">
+                                    <a href="#" type="input" class="markName">Marker3</a>
+                                  </td>
+                              </tr>
+                            </tbody>
+                        </table>
+                    </div>  
+
+                    <label for="recipient-name" class="col-form-label">Edit Event:</label>
+                      <div class="scrollable" style="height: 90px;background-color: #ced4da;border-radius: 7px;">
+                        <table class="table" style="overflow: scroll;">
+                            <tbody id="myTable">
+                              <tr>
+                                  <td style="border-top: transparent;">
+                                      <a href="#" type="input" class="markName">Event1</a>
+                                  </td>
+                              </tr>
+                              <tr>
+                                  <td style="border-top: transparent;">
+                                    <a href="#" type="input" class="markName">Event2</a>
+                                  </td>
+                              </tr>
+                              <tr>
+                                  <td style="border-top: transparent;">
+                                    <a href="#" type="input" class="markName">Event3</a>
+                                  </td>
+                              </tr>
+                            </tbody>
+                        </table>
+                    </div>  
+
+                    <div class="form-check" style="margin-left: 7px;margin-bottom: 5px;margin-top: 5px;">
+                      <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option1" checked>
+                      <label class="form-check-label" for="exampleRadios1">
+                        Public
+                      </label>
+                    </div>
+                    <div class="form-check" style="margin-left: 7px;margin-bottom: 5px;">
+                      <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios2" value="option2">
+                      <label class="form-check-label" for="exampleRadios2">
+                        Private
+                      </label>
+                    </div>
+
+                    </form>
+                  </div>
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <!--button type="button" class="btn btn-primary">Send message</button-->
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="modal fade" id="settings" tabindex="-1" role="dialog" aria-labelledby="settingsLabel" aria-hidden="true">
+              <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Settings</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                      <span aria-hidden="true">&times;</span>
+                    </button>
+                  </div>
+                  <div class="modal-body">
+                    <form>
+                      <div class="form-group">
+                        <label for="recipient-name" class="col-form-label">Username:</label>
+                        <input type="text" placeholder="Actual Name" class="form-control" id="recipient-name">
+                      </div>
+                      <div class="form-group">
+                        <label for="recipient-name" class="col-form-label">Email address:</label>
+                        <input type="text" placeholder="Actual email adress" class="form-control" id="recipient-name">
+                      </div>
+                    </form>
+                  </div>
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+              
+            <div id="main">
+                <link rel="stylesheet" href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css"
+                integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ=="
+                crossorigin=""/>
+        
+                <div id="mapleflet1">
+                </div>
+            </div>
+        </div>
+        
+
+        
+      <script src="https://unpkg.com/leaflet@1.6.0/dist/leaflet.js" integrity="sha512-gZwIG9x3wUXg2hdXF6+rVkLF/0Vi9U8D2Ntg4Ga5I5BZpVkVxlJWbSQtXPSiUTtC0TjtGOmxa1AJPuV0CPthew==" crossorigin=""></script>
+      
+      <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+			<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+			<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+      
+      <script type="text/javascript" src="https://code.jquery.com/jquery-2.2.0.min.js"></script>
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3/underscore-min.js"></script>
+      
+      <!-- Ces deux balises script sont à insérer entre les deux balises existantes -->
+      <script src="https://unpkg.com/leaflet-routing-machine@latest/dist/leaflet-routing-machine.js"></script>   
+      <script src="https://unpkg.com/leaflet-control-geocoder/dist/Control.Geocoder.js"></script>    
+      
+	    <script type="text/javascript" src="leaflet.js"></script>
+
+</body>
+</html>
