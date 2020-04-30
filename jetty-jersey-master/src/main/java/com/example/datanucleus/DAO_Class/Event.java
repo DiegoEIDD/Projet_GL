@@ -12,8 +12,8 @@ package com.example.datanucleus.DAO_Class;
 public class Event extends Marker {
     public Duration date;
     
-    public Event(Duration d, String n, Position l) {
-    	super(n,l);
+    public Event(Duration d, String n, Position l, int i) {
+    	super(n,l,i);
     	this.date = d;
     }
 }

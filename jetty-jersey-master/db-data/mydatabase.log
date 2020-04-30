@@ -1,0 +1,11 @@
+/*C4*/SET SCHEMA PUBLIC
+create table if not exists \u000d\u000a\u0009contacts (name varchar(45),email varchar(45),phone varchar(45))
+INSERT INTO CONTACTS VALUES('John Quincy Adams','not@real.com','513-111-1111')
+COMMIT
+INSERT INTO CONTACTS VALUES('Marcus Aurelius','not@real.com','513-111-1111')
+COMMIT
+INSERT INTO CONTACTS VALUES('Iain M Banks','not@real.com','513-111-1111')
+COMMIT
+INSERT INTO CONTACTS VALUES('George R.R. Martin','george@kings-landing.com','513-121-1314')
+COMMIT
+DISCONNECT

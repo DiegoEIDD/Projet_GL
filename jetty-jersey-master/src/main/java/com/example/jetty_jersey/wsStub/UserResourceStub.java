@@ -61,7 +61,7 @@ public class UserResourceStub{
 		//List maps;
 		//actionUser.getInstance().addMaps(m);
 		//maps.add(m);
-		Maps map = new Maps(null);
+		Maps map = new Maps(null,21);
 		return u.addMap(map);
 	}
 	
@@ -73,7 +73,7 @@ public class UserResourceStub{
 		StubActionUser u = new StubActionUser();
 		//actionUser.getInstance().modifyMapName(m,newName);
 		//m.name = newName;
-		Maps map = new Maps(null);
+		Maps map = new Maps(null,22);
 		return u.modifyMapName(map, "newName");
 	}
 	
@@ -95,7 +95,7 @@ public class UserResourceStub{
 		//List friends;
 		//actionUser.getInstance().addFriends(u);
 		//friends.add(u);
-		User f = new User(null, null, null);
+		User f = new User(null, null,23);
 		StubActionUser u = new StubActionUser();
 		return u.addFriends(f);
 	}
@@ -107,7 +107,7 @@ public class UserResourceStub{
 		//List friends;
 		//actionUser.getInstance().deleteFriends(u);
 		//friends.remove(u);
-		User f = new User(null, null, null);
+		User f = new User(null, null,24);
 		StubActionUser u = new StubActionUser();
 		return u.deleteFriends(f);
 	}
@@ -128,7 +128,7 @@ public class UserResourceStub{
 		//List maps;
 		//actionUser.getInstance().deleteMap(m);
 		//maps.remove(m);
-		Maps map = new Maps(null);
+		Maps map = new Maps(null,25);
 		StubActionUser u = new StubActionUser();
 		return u.deleteMap(map);
 	}

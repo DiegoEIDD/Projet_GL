@@ -1,0 +1,245 @@
+<!--link href="css/home.css" rel="stylesheet" id="bootstrap-css"-->
+<!-- Include the above in your HEAD tag -->
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Planny</title>   
+    <link rel="icon" type="image/png" href="../Bootstrap/img/logo.png">
+	<!--Bootsrap 4 CDN-->
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+	
+    <!--Fontawesome CDN-->
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+
+	<!--Custom styles-->
+    <link rel="stylesheet" type="text/css" href="../Bootstrap/css/mapStyle.css">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/css/select2.min.css" rel="stylesheet" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/js/select2.min.js"></script>
+
+</head>
+<body>
+
+    <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #e43e32;">
+        <a class="navbar-brand">
+            <img src="../Bootstrap/img/logo.png" width="30" height="30" class="d-inline-block align-top" alt="">
+            <strong class="script_tab_color" style="font-size: 20px;">Planny</strong>
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+      
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+              <a class="nav-link" href="../Bootstrap/map.html"><span class="script_tab_color">Home</span></a>
+            </li>
+            <li class="nav-item active">
+                <a class="nav-link" href="../Bootstrap/mapsMenu.html"><strong class="script_tab_color">Maps</strong></a>
+            </li>
+            <li class="nav-item active">
+                <a class="nav-link" href="../Bootstrap/friends.html"><span class="script_tab_color">Friends</span></a>
+            </li>
+          </ul>
+          <form class="form-inline my-2 my-lg-0">
+            <a class="btn logout_btn" href="../Bootstrap/home.html" type="submit">Log Out</a>
+          </form>
+        </div>
+    </nav>
+
+
+  <div class="container">
+  <div class="row">
+    <div class="col-md-4">
+      <input class="form-control" id="myInput" type="text" placeholder="Search Map.." style="background-color: rgb(24, 43, 57);color:white;margin-top: 50px;">
+          <div class="scrollable">
+            <table class="table" style="color: whitesmoke;min-height:calc(95vh - 160px);background-color: #3a3f48;margin-top: 1px;border-radius: 7px;overflow: scroll;">
+                <tbody id="myTable">
+                  <tr>
+                      <td style="border-top: transparent;">
+                          <a href="#" type="input" class="mapName">Map1</a>
+                          <!--a class="btn delete_btn " href="#" type="submit">Delete</a-->
+                      </td>
+                  </tr>
+                  <tr>
+                      <td style="border-top: transparent;">
+                        <a href="#" type="input" class="mapName">Mappy2</a>
+                          <!--a class="btn delete_btn" href="#" type="submit">Delete</a-->
+                      </td>
+                  </tr>
+                  <tr>
+                      <td style="border-top: transparent;">
+                        <a href="#" type="input" class="mapName">Planny3</a>
+                          <!--a class="btn delete_btn" href="#" type="submit">Delete</a-->
+                      </td>
+                  </tr>
+                  <tr>
+                    <td style="border-top: transparent;">
+                      <a href="#" type="input" class="mapName">Plan</a>
+                        <!--a class="btn delete_btn" href="#" type="submit">Delete</a-->
+                    </td>
+                  </tr>
+                  <tr>
+                    <td style="border-top: transparent;">
+                      <a href="#" type="input" class="mapName">Demo</a>
+                        <!--a class="btn delete_btn" href="#" type="submit">Delete</a-->
+                    </td>
+                  </tr>
+                  <tr>
+                    <td style="border-top: transparent;">
+                      <a href="#" type="input" class="mapName">Demo</a>
+                        <!--a class="btn delete_btn" href="#" type="submit">Delete</a-->
+                    </td>
+                  </tr>
+                  <tr>
+                    <td style="border-top: transparent;">
+                      <a href="#" type="input" class="mapName">Demo</a>
+                        <!--a class="btn delete_btn" href="#" type="submit">Delete</a-->
+                    </td>
+                  </tr>
+                  <tr>
+                    <td style="border-top: transparent;">
+                      <a href="#" type="input" class="mapName">Demo</a>
+                        <!--a class="btn delete_btn" href="#" type="submit">Delete</a-->
+                    </td>
+                  </tr>
+                  <tr>
+                    <td style="border-top: transparent;">
+                      <a href="#" type="input" class="mapName">Demo</a>
+                        <!--a class="btn delete_btn" href="#" type="submit">Delete</a-->
+                    </td>
+                  </tr>
+                  <tr>
+                    <td style="border-top: transparent;">
+                      <a href="#" type="input" class="mapName">Demo</a>
+                        <!--a class="btn delete_btn" href="#" type="submit">Delete</a-->
+                    </td>
+                  </tr>
+                  <tr>
+                    <td style="border-top: transparent;">
+                      <a href="#" type="input" class="mapName">Demo</a>
+                        <!--a class="btn delete_btn" href="#" type="submit">Delete</a-->
+                    </td>
+                  </tr>
+                </tbody>
+            </table>
+        </div>   
+      </div>     
+
+      <div class="col-md-8" style="margin-top: 50px;">
+        <div class="row scrollable2">
+        <table class="table" style="color: whitesmoke;background-color: #3a3f48;border-radius: 7px;overflow: scroll;">
+          <thead>
+            <thead>
+              <tr>
+                <th scope="col" style="border-top: transparent;">Shared with...</th>
+              </tr>
+            </thead>
+          </thead>  
+          <tbody id="myTable">
+              <tr>
+                  <td style="border-top: transparent;">
+                    <!--button onclick="remove_update(event)">Remove</button-->
+                      <a href="#" type="input" class="mapName">Friend1</a>
+                      <!--a class="btn delete_btn" href="#" type="submit" style="position: absolute;width: 76px;margin-left: calc(100vh - 76px);">Unshare</a-->
+                  </td>
+              </tr>
+              <tr>
+                  <td style="border-top: transparent;">
+                    <a href="#" type="input" class="mapName">Friend2</a>
+                      <!--a class="btn delete_btn" href="#" type="submit">Delete</a-->
+                  </td>
+              </tr>
+              <tr>
+                  <td style="border-top: transparent;">
+                    <a href="#" type="input" class="mapName">Friend3</a>
+                      <!--a class="btn delete_btn" href="#" type="submit">Delete</a-->
+                  </td>
+              </tr>
+              <tr>
+                <td style="border-top: transparent;">
+                  <a href="#" type="input" class="mapName">Friend4</a>
+                    <!--a class="btn delete_btn" href="#" type="submit">Delete</a-->
+                </td>
+              </tr>
+              <tr>
+                <td style="border-top: transparent;">
+                  <a href="#" type="input" class="mapName">Friend5</a>
+                    <!--a class="btn delete_btn" href="#" type="submit">Delete</a-->
+                </td>
+              </tr>
+              <tr>
+                <td style="border-top: transparent;">
+                  <a href="#" type="input" class="mapName">Amigo6</a>
+                    <!--a class="btn delete_btn" href="#" type="submit">Delete</a-->
+                </td>
+              </tr>
+              <tr>
+                <td style="border-top: transparent;">
+                  <a href="#" type="input" class="mapName">BROOOOOOO</a>
+                    <!--a class="btn delete_btn" href="#" type="submit">Delete</a-->
+                </td>
+              </tr>
+              <tr>
+                <td style="border-top: transparent;">
+                  <a href="#" type="input" class="mapName">Friend8</a>
+                    <!--a class="btn delete_btn" href="#" type="submit">Delete</a-->
+                </td>
+              </tr>
+              <tr>
+                <td style="border-top: transparent;">
+                  <a href="#" type="input" class="mapName">Friend9</a>
+                    <!--a class="btn delete_btn" href="#" type="submit">Delete</a-->
+                </td>
+              </tr>
+            </tbody>
+        </table>   
+      </div>
+        
+        <div class="row notscroll">
+          <div class="col-md" style="background-color: #3a3f48;border-radius: 7px;">
+            <a class="btn edit_btn" href="#" type="submit" style="position: absolute;margin-left: 90vh;margin-top: 27px;">Edit</a>
+            <a class="btn delete_btn" href="#" type="submit" style="position: absolute;margin-left: 90vh;margin-top: 77px;">Delete</a>
+            <a class="btn delete_btn" href="#" type="submit" style="position: absolute;width:77px;margin-left: 90vh;margin-top: 127px;">Unshare</a>
+            <p style="width: 80vh;margin-left:20px;margin-top: 77px;color: whitesmoke;">
+              Le nom de la map ou de l'ami selectionné s'affiche ici.
+            </p>
+          </div>
+        </div>  
+    <!--div class="col-md-2" style="background-color: #3a3f48;margin-top: 50px;height:calc(60vh - 160px);">
+      
+    </div-->
+  </div>
+
+    <script>
+        $(document).ready(function(){
+          $("#myInput").on("keyup", function() {
+            var value = $(this).val().toLowerCase();
+            $("#myTable tr").filter(function() {
+              $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+            });
+          });
+        });
+    </script>
+ 
+  </div>
+
+
+        
+
+        <script type="text/javascript" src="https://code.jquery.com/jquery-2.2.0.min.js"></script>
+	    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3/underscore-min.js"></script>
+	    <script type="text/javascript" src="leaflet.js"></script>
+		<script src="https://unpkg.com/leaflet@1.6.0/dist/leaflet.js"
+   	    integrity="sha512-gZwIG9x3wUXg2hdXF6+rVkLF/0Vi9U8D2Ntg4Ga5I5BZpVkVxlJWbSQtXPSiUTtC0TjtGOmxa1AJPuV0CPthew=="
+        crossorigin=""></script>
+
+		<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+		<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+		<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+</body>
+</html>

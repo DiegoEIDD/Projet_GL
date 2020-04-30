@@ -16,13 +16,14 @@ import org.glassfish.jersey.servlet.ServletContainer;
 public class JettyMain {
 
 	public static void main(String[] args) throws Exception {
+
 		// Initialize the server
 		Server server = new Server();
 
 		// Add a connector
 		ServerConnector connector = new ServerConnector(server);
 		connector.setHost("0.0.0.0");
-		connector.setPort(8084);
+		connector.setPort(8103);
 		connector.setIdleTimeout(30000);
 		server.addConnector(connector);
 
@@ -42,7 +43,7 @@ public class JettyMain {
 		ResourceHandler handlerPortal = new ResourceHandler();
 		handlerPortal.setResourceBase("src/main/webapp");
 		handlerPortal.setDirectoriesListed(false);
-		handlerPortal.setWelcomeFiles(new String[] { "lef.html" });
+		handlerPortal.setWelcomeFiles(new String[] { "Bootstrap/home.html" });
 		ContextHandler handlerPortalCtx = new ContextHandler();
 		handlerPortalCtx.setContextPath("/");
 		handlerPortalCtx.setHandler(handlerPortal);
