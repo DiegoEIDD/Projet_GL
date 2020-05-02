@@ -7,11 +7,13 @@ package com.example.datanucleus.DAO_Class;
 
 import java.util.ArrayList;
 import java.util.List;
+import javax.jdo.annotations.PersistenceCapable;
 
 /**
  *
  * @author Groupe3
  */
+@PersistenceCapable
 public class Maps{
     public String name;
     public List <Marker> mark;
@@ -19,7 +21,7 @@ public class Maps{
     public List <User> access;
     public int id;
     
-    public Maps(String n, int i) {
+    public Maps(String n,int i) {
     	this.name = n;
     	this.mark = new ArrayList<>();
     	this.ev = new ArrayList<>();
