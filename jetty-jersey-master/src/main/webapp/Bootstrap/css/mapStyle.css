@@ -14,12 +14,12 @@ font-family: 'Numans', sans-serif;
 
 #mapleflet1 { 
     /*height: 500px;
-    width: 900px; 
-    position: absolute;
-    top : 100px;
-    left: 150px;*/
+    width: 900px;*/
+    /*
+    left: 0;
+    right: 0;
+    position: absolute;*/
     top: auto;
-    /*bottom: auto;*/
     min-height: calc(100vh - 56px);
     min-width: 100vh;
 }
