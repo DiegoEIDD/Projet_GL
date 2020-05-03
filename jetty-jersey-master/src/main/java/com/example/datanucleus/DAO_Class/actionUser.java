@@ -13,20 +13,32 @@ public interface actionUser {
 	/**
 	 * @return the password of the user
 	 * */
-		User getPassword();
+	String getPassword(User u);
+	/**
+	 * @return get all user
+	 */
+	List<User> getUser();
 	/**
 	 * 
 	 * @return return true if edit work
 	 */
 	boolean editName(String current, String newName);
 	/**
+	 * @return true if an user is created
+	 */
+	boolean createUser(String name);
+	/**
+	 * @return true if an user is deleted 
+	 */
+	boolean delUser(String name);
+	/**
 	 * @return the list of maps belonging to the User
 	 * */
-	List<Maps> getMaps();
+	List<Maps> getMaps(User u);
 	/**
 	 * @return the list of maps the user have access
 	 * */
-	List<Maps> getAcess();
+	List<Maps> getAcess(User u);
 	
 	/**
 	 * @param map of type Maps
@@ -53,7 +65,7 @@ public interface actionUser {
 	 * @param friend of type User
 	 * Add a friend to the user's list of friends
 	 * */
-	boolean addFriends(String friend);
+	boolean addFriends(String friend, String user);
 	/**
 	 * @param friend of type User
 	 * Delete a friend from the user's list of friends
@@ -62,7 +74,7 @@ public interface actionUser {
 	/**
 	 * @return the list of friends of the User
 	 * */
-	List<User> getFriends();
+	List<User> getFriends(User u);
 	/**
 	 * @return the list of friends of the user restricted by the search toolbar
 	 * */

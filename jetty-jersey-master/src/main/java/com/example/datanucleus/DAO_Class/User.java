@@ -22,18 +22,25 @@ public class User{
 	 private String name;
 	 private String password;
 	 private List <Maps> map;
-	 //Access: list de maps
+	 private List<User> friend;
 	 private Access acc;
-	 //public Position localisation;
 	 private int id;
 	 
 	 public User(String n, String p, int i) {
 		 this.name = n;
 		 this.password = p;
-		 this.map = new ArrayList<>();
-		 //this.acc = a;
+		 this.map = new ArrayList<Maps>();
 		 this.id = i;
+		 this.friend = new ArrayList<User>();
 	 }
+
+	public List<User> getFriend() {
+		return friend;
+	}
+
+	public void setFriend(List<User> u) {
+		this.friend = u;
+	}
 
 	public String getName() {
 		return name;
