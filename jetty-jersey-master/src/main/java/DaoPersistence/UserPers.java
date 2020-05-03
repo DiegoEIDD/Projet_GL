@@ -28,9 +28,9 @@ public class UserPers implements actionUser{
 	}
 
 	@Override
-	public User getPassword() {
+	public String getPassword(User u) {
 		// TODO Auto-generated method stub
-		return null;
+		return u.getPassword();
 	}
 
 	@Override
