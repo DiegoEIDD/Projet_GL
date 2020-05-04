@@ -28,60 +28,114 @@ $(function (){
     }).addTo(mymap);
 */
 
-  /*var route = */L.Routing.control({
-    waypoints: [
-        L.latLng(48.8278364, 2.3806668),
-        L.latLng(48.8278364, 2.6006670)
-    ],
-    routeWhileDragging: true,
-    /*itineraryShown: true,
-    autoRoute: true,
-    show: true,*/
-    geocoder: L.Control.Geocoder.nominatim()
-  }).addTo(mymap);
+var route = L.Routing.control({});
+$('#itinerary').on('click', function() {
+  if($('.leaflet-routing-container').is(':visible')){
+    mymap.removeControl(route);
+  }
+  else{
+    route = L.Routing.control({
+      /*waypoints: [
+          L.latLng(48.8278364, 2.3806668),
+          L.latLng(48.8278364, 2.6006670)
+      ],*/
+      routeWhileDragging: true,
+      /*itineraryShown: true,
+      autoRoute: true,
+      show: true,*/
+      geocoder: L.Control.Geocoder.nominatim()
+    }).addTo(mymap);
+  }
+});
+/*
+$('#itinerary').on('dblclick', function() {
+  route.removeFrom(mymap)
+});
+*/
 
+  /*var it = document.getElementById("itinerary");
+  $('#itinerary').on('click', function() {
+    $('.leaflet-routing-container').is(':visible') ? mymap.removeLayer(route) : route.addTo(mymap);
+  }); */
 
-mymap.on('click', function(e) {
-  
-  var marker = L.marker(e.latlng, { draggable: true }).addTo(mymap);
- marker.bindPopup('<span id="name">Name</span><br><br><button id="btn2">add message</button><br><br><button id="btn3">add picture</button><br>').openPopup();
- 
- marker.on('dblclick', function(e) {
-   console.log(e);
-   mymap.removeLayer(marker);
- 
- });
- 
- } );
- mymap.locate({
-   setView: true,
-   maxZoom: 16
- })
- mymap.on('locationfound', function(e) {
-   var radius = e.accuracy / 2;
-   L.marker(e.latlng).addTo(mymap).bindPopup("Here you are").openPopup();
-   L.circle(e.latlng, radius).addTo(mymap);
- });
- 
- mymap.on('locationerror', function(e) {
-   console.log('定位出错=====>', e);
- });
- 
- mymap.on("popupopen", function(){
-   document.getElementById("name").onclick = function(){
-     null;
-   }
- });
- mymap.on("popupopen", function(){
-   document.getElementById("btn2").onclick = function(){
-    null;
-   }
- });
- mymap.on("popupopen", function(){
-   document.getElementById("btn3").onclick = function(){
-    null;
-   }
- });   
+/*
+var active = false;
+$('#markID').on('click', function() {
+  if(active){active=false;}
+  else{active=true;}
+
+    if(active){
+      mymap.on('click', function(e) {
+
+      var marker = L.marker(e.latlng, { draggable: true }).addTo(mymap);
+      marker.bindPopup('<span id="name">Name</span><br><br><button id="btn2">add message</button><br><br><button id="btn3">add picture</button><br>').openPopup();
+      
+      marker.on('dblclick', function(e) {
+        console.log(e);
+        mymap.removeLayer(marker);
+      
+      });
+      });
+    }  
+    else{
+      document.getElementById('markID').addEventListener('dblclick',function () {
+        mymap.off('click', onClick);
+      })
+    }
+}) 
+*/
+
+var active = false;
+document.getElementById('markID').addEventListener('click',function () {
+  function onClick(e) { 
+    var marker = L.marker(e.latlng, { draggable: true }).addTo(mymap);
+  marker.bindPopup('<div class="input-group input-group-sm"><label for="recipient-name" class="col-form-label">Marker name:</label><input type="text" placeholder="Name" class="form-control" id="recipient-name"></div>  <br><a href="#" data-toggle="modal" data-target="#addMessage" data-whatever="@mdo"> <i class="far fa-circle"></i><span>Add message</span></a><br><br><a href="#" data-toggle="modal" data-target="#addImage" data-whatever="@mdo"> <i class="far fa-circle"></i><span>Add Image</span></a> <br><br><a href="#" data-toggle="modal" data-target="#markMenu" data-whatever="@mdo"> <i class="far fa-circle"></i><span>See Marker</span></a>').openPopup(); 
+  marker.on('dblclick', function(e) {
+    console.log(e);
+    mymap.removeLayer(marker);
+  })
+}
+if(active){
+  mymap.removeEventListener('click',false);
+  active=false;
+}
+  else{
+    mymap.on('click', onClick);
+    active=true;
+  }
+});
+
+      mymap.locate({
+        setView: true,
+        maxZoom: 16
+      })
+      mymap.on('locationfound', function(e) {
+        var radius = e.accuracy / 2;
+        L.marker(e.latlng).addTo(mymap).bindPopup("Here you are").openPopup();
+        L.circle(e.latlng, radius).addTo(mymap);
+      });
+      
+      mymap.on('locationerror', function(e) {
+        console.log('定位出错=====>', e);
+      });
+      
+      /*
+      mymap.on("popupopen", function(){
+        document.getElementById("addname").onclick = function(){
+          null;
+        }
+      });
+      mymap.on("popupopen", function(){
+        document.getElementById("btn2").onclick = function(){
+          null;
+        }
+      });
+      mymap.on("popupopen", function(){
+        document.getElementById("btn3").onclick = function(){
+          null;
+        }
+      });   
+      */
 
   /*var marker = L.marker([48.8278364, 2.3806668]).addTo(mymap);
   marker.bindPopup("<b>EIDD</b><br>Paris Diderot").openPopup();*/
