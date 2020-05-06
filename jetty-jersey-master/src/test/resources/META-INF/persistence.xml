@@ -6,6 +6,7 @@
     <!-- Test configuration -->
     <persistence-unit name="proj">
     	<class>com.example.datanucleus.DAO_Class.User</class>
+        <class>com.example.datanucleus.DAO_Class.Maps</class>
         
         <properties>
             <property name="javax.jdo.option.ConnectionURL" value="jdbc:hsqldb:mem:example"/>

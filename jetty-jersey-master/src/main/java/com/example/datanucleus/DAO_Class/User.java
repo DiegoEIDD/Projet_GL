@@ -23,7 +23,7 @@ public class User{
 	 private String password;
 	 private List <Maps> map;
 	 private List<User> friend;
-	 private Access acc;
+	 //private Access acc;
 	 private int id;
 	 
 	 public User(String n, String p, int i) {
@@ -65,7 +65,7 @@ public class User{
 	public void setMap(List<Maps> map) {
 		this.map = map;
 	}
-
+/*
 	public Access getAcc() {
 		return acc;
 	}
@@ -73,7 +73,7 @@ public class User{
 	public void setAcc(Access acc) {
 		this.acc = acc;
 	}
-
+*/
 	public int getId() {
 		return id;
 	}

@@ -22,15 +22,17 @@ public class UserPers implements actionUser{
 	}
 
 	@Override
-	public String getName(User u) {
+	public String getName(String u) {
 		// TODO Auto-generated method stub
-		return u.getName();
+		User u1 = restrictedFriendList(u).get(0);
+		return u1.getName();
 	}
 
 	@Override
-	public String getPassword(User u) {
+	public String getPassword(String u) {
 		// TODO Auto-generated method stub
-		return u.getPassword();
+		User u1 = restrictedFriendList(u).get(0);
+		return u1.getPassword();
 	}
 
 	@Override
@@ -211,6 +213,32 @@ public class UserPers implements actionUser{
 			if(u!=null) {
 				u.setName(newName);
 				this.delUser(current);
+				Query q = pm.newQuery(User.class);
+				pm.makePersistent(u);
+				tx.commit();
+			}
+		} finally {
+			if (tx.isActive()) {
+				tx.rollback();
+				ret = false;
+			}
+			pm.close();
+		} 
+		return ret;
+	}
+	
+	@Override
+	public boolean editPassword(String user ,String password) {
+		// TODO Auto-generated method stub
+		PersistenceManager pm = pmf.getPersistenceManager();
+		Transaction tx = pm.currentTransaction();
+		boolean ret = true;
+		try {
+			tx.begin();
+			User u = this.restrictedFriendList(user).get(0);
+			if(u!=null) {
+				u.setPassword(password);;
+				this.delUser(user);
 				Query q = pm.newQuery(User.class);
 				pm.makePersistent(u);
 				tx.commit();

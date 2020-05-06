@@ -9,11 +9,11 @@ public interface actionUser {
 	/**
 	 * @return the name of the user
 	 * */
-	String getName(User u);
+	String getName(String u);
 	/**
 	 * @return the password of the user
 	 * */
-	String getPassword(User u);
+	String getPassword(String u);
 	/**
 	 * @return get all user
 	 */
@@ -23,6 +23,10 @@ public interface actionUser {
 	 * @return return true if edit work
 	 */
 	boolean editName(String current, String newName);
+	/**
+	 * @return true if the password is edited
+	 */
+	boolean editPassword(String user, String Password);
 	/**
 	 * @return true if an user is created
 	 */
