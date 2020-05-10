@@ -31,7 +31,6 @@ public class User{
 		 this.name = n;
 		 this.password = p;
 		 this.map = new ArrayList<Maps>();
-		 this.id = i;
 		 this.friend = new ArrayList<User>();
 	 }
 	 

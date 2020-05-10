@@ -28,9 +28,9 @@ public class MarkerPers implements actionMarker {
 	}
 
 	@Override
-	public String getName(String marker) {
+	public Marker getName(String name) {
 		// TODO Auto-generated method stub
-		return null;
+		return this.getRestrictedMarker(name).get(0);
 	}
 
 	@Override
@@ -86,7 +86,7 @@ public class MarkerPers implements actionMarker {
 		// TODO Auto-generated method stub
 		PersistenceManager pm = pmf.getPersistenceManager();
 		Transaction tx = pm.currentTransaction();
-		Marker u = new Marker(name, null);
+		Marker u = new Marker(name);
 		boolean ret = true;
 		try {
 			tx.begin();
@@ -164,7 +164,7 @@ public class MarkerPers implements actionMarker {
 		Transaction tx = pm.currentTransaction();
 		try {
 			tx.begin();
-			Query q = pm.newQuery(User.class);
+			Query q = pm.newQuery(Marker.class);
             q.declareParameters("String search");
             q.setFilter("name.startsWith(search)");
             mark = (List<Marker>) q.execute(search);
@@ -182,15 +182,15 @@ public class MarkerPers implements actionMarker {
 	@Override
 	public List<Marker> getMarker() {
 		// TODO Auto-generated method stub
-		List<Marker> users = null;
+		List<Marker> s = null;
 		List<Marker> detached = new ArrayList<Marker>();
 		PersistenceManager pm = pmf.getPersistenceManager();
 		Transaction tx = pm.currentTransaction();
 		try {
 			tx.begin();
-			Query q = pm.newQuery(User.class);
-			users = (List<Marker>) q.execute("");
-			detached = (List<Marker>) pm.detachCopyAll(users);
+			Query q = pm.newQuery(Marker.class);
+			s = (List<Marker>) q.execute("");
+			detached = (List<Marker>) pm.detachCopyAll(s);
 			tx.commit();
 		} finally {
 			if (tx.isActive()) {
@@ -213,7 +213,8 @@ public class MarkerPers implements actionMarker {
 			tx.begin();
 			Marker u = this.getRestrictedMarker(name).get(0);
 			if(u!=null) {
-				u.setLocalisation(p);
+				u.setLat(lat);
+				u.setLon(longi);
 				this.delMarker(name);
 				Query q = pm.newQuery(Marker.class);
 				pm.makePersistent(u);
@@ -228,6 +229,5 @@ public class MarkerPers implements actionMarker {
 		} 
 		return ret;
 	}
-	
 	
 }

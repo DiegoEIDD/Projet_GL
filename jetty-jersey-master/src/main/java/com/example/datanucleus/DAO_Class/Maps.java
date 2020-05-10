@@ -21,12 +21,11 @@ public class Maps{
     private List <User> access;
     private int id;
     
-    public Maps(String n,int i) {
+    public Maps(String n) {
     	this.name = n;
     	this.mark = new ArrayList<>();
     	this.ev = new ArrayList<>();
     	this.access = new ArrayList<>();
-    	this.id = i;
     }
 
 	public String getName() {

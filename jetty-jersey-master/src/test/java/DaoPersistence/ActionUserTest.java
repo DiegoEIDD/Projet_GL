@@ -19,27 +19,35 @@ public class ActionUserTest {
 		PersistenceManagerFactory pmf = JDOHelper.getPersistenceManagerFactory("proj");
 		UserPers user = new UserPers(pmf);
 		List <User>flist = new ArrayList<User>(); 
+		User u = new User("nouveau", "msp");
+		User u1 = new User("nouvelle", "msp");
+		MapPers m = new MapPers(pmf);
+		MarkerPers mark = new MarkerPers(pmf);
 
 		Assert.assertEquals(0, user.getUser().size());
-	    Assert.assertTrue(user.createUser("nouveau"));	    
+	    Assert.assertTrue(user.createUser(u));	    
 		Assert.assertEquals(1, user.getUser().size());
 		Assert.assertSame("nouveau",user.restrictedFriendList("nouveau").get(0).getName());
 		Assert.assertTrue(user.delUser("nouveau"));
 		Assert.assertEquals(0, user.getUser().size());
-	    Assert.assertTrue(user.createUser("nouvelle"));
-		Assert.assertTrue(user.editName("nouvelle","nouveau"));
+	    Assert.assertTrue(user.createUser(u1));
+		Assert.assertTrue(user.editName("nouvelle","nou"));
 	    Assert.assertEquals(1, user.getUser().size());
-	    Assert.assertTrue(user.createUser("nouvelle"));
+	    Assert.assertTrue(user.createUser(u));
 		Assert.assertEquals(2,user.getUser().size());
-		Assert.assertTrue(user.editPassword("nouvelle","mdp"));
-		Assert.assertEquals(2,user.getUser().size());
-		Assert.assertSame("nouvelle",user.restrictedFriendList("nouvelle").get(0).getName());
-		//Assert.assertTrue(user.addFriends("nouveau","nouvelle"));
-		flist.add(user.restrictedFriendList("nouveau").get(0));
-		Assert.assertTrue(user.editFriendList("nouvelle", flist));
-		System.out.println(user.restrictedFriendList("nouvelle").get(0).getFriend());
-		Assert.assertEquals(2,user.getUser().size());
-		System.out.println(user.restrictedFriendList("nouvelle").get(0).getFriend());
+		Assert.assertTrue(user.editPassword("nou","mdp"));
+
+		Assert.assertEquals(0, m.getMap().size());
+	    Assert.assertTrue(m.createMap("map"));	    
+		Assert.assertEquals(1, m.getMap().size());
+		
+		/*Assert.assertEquals(0, mark.getMarker().size());
+		Assert.assertEquals(0, mark.createMarker("m"));
+		Assert.assertEquals(0, mark.getMarker().size());
+*/
+
+
+
 	}
 	
 }

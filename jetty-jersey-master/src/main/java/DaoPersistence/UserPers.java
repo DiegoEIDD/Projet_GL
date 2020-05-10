@@ -67,21 +67,6 @@ public class UserPers implements actionUser{
 	@Override
 	public boolean addMap(String mapname){
 		// TODO Auto-generated method stub
-		PersistenceManager pm = pmf.getPersistenceManager();
-		Transaction tx = pm.currentTransaction();
-		Maps u = new Maps(mapname,1);
-		try {
-			tx.begin();
-			pm.makePersistent(u);
-			tx.commit();
-		}
-		finally {
-			if (tx.isActive()) {
-				tx.rollback();
-
-			}
-			pm.close();
-		}
 		return true;
 	}
 
@@ -105,15 +90,23 @@ public class UserPers implements actionUser{
 	
 	@SuppressWarnings({"unchecked","finally"})
 	@Override
-	public boolean createUser(/*String friend*/User u) {
+	public boolean createUser(User u) {
 		// TODO Auto-generated method stub
 		PersistenceManager pm = pmf.getPersistenceManager();
 		Transaction tx = pm.currentTransaction();
-		int i = this.getUser().size();
-		//User u = new User(friend, "pernambucano",i+1);
+		int id =0;
+		if(this.getUser().size()!=0) {
+			for(int i = 0;i<this.getUser().size();i++) {
+				if(id<this.getUser().get(i).getId()) {
+					id=this.getUser().get(i).getId();
+				}
+			
+			}
+		}
 		boolean ret = true;
 		try {
 			tx.begin();
+			u.setId(id);
 			pm.makePersistent(u);
 			tx.commit();
 		} finally {
@@ -237,7 +230,7 @@ public class UserPers implements actionUser{
 			tx.begin();
 			User u = this.restrictedFriendList(user).get(0);
 			if(u!=null) {
-				u.setPassword(password);;
+				u.setPassword(password);
 				this.delUser(user);
 				Query q = pm.newQuery(User.class);
 				pm.makePersistent(u);

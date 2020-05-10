@@ -9,24 +9,42 @@ import java.awt.Image;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.jdo.annotations.PersistenceCapable;
+
 /**
  *
  * @author Groupe3
  */
+
 public class Marker{
     private String name;
     private List<Image> picture;
     private List <String> message;
-    private Position localisation;
+    private int lat;
+    private int lon;
     private int id;
     
-    public Marker(String n, Position l, int i) {
+    public Marker(String n) {
     	this.name = n;
     	this.picture = new ArrayList<>();
     	this.message = new ArrayList<>();
-    	this.localisation = l;
-    	this.id = i;
     }
+
+	public int getLat() {
+		return lat;
+	}
+
+	public void setLat(int lat) {
+		this.lat = lat;
+	}
+
+	public int getLon() {
+		return lon;
+	}
+
+	public void setLon(int lon) {
+		this.lon = lon;
+	}
 
 	public String getName() {
 		return name;
@@ -52,13 +70,7 @@ public class Marker{
 		this.message = message;
 	}
 
-	public Position getLocalisation() {
-		return localisation;
-	}
 
-	public void setLocalisation(Position localisation) {
-		this.localisation = localisation;
-	}
 
 	public int getId() {
 		return id;

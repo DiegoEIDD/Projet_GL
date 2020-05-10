@@ -105,8 +105,17 @@ public class MapPers implements actionMaps {
 		Transaction tx = pm.currentTransaction();
 		Maps u = new Maps(name);
 		boolean ret = true;
+		int id =0;
+		if(this.getMap().size()!=0) {
+			for(int i = 0;i<this.getMap().size();i++) {
+				if(id<this.getMap().get(i).getId()) {
+					id=this.getMap().get(i).getId();
+				}
+			}
+		}
 		try {
 			tx.begin();
+			u.setId(id);
 			pm.makePersistent(u);
 			tx.commit();
 		} finally {
@@ -180,7 +189,7 @@ public class MapPers implements actionMaps {
 		Transaction tx = pm.currentTransaction();
 		try {
 			tx.begin();
-			Query q = pm.newQuery(User.class);
+			Query q = pm.newQuery(Maps.class);
 			users = (List<Maps>) q.execute("");
 			detached = (List<Maps>) pm.detachCopyAll(users);
 			tx.commit();
@@ -189,7 +198,6 @@ public class MapPers implements actionMaps {
 				tx.rollback();
 			}
 			pm.close();
-			System.out.println(detached);
 			return detached;
 		}
 
@@ -204,7 +212,7 @@ public class MapPers implements actionMaps {
 		Transaction tx = pm.currentTransaction();
 		try {
 			tx.begin();
-			Query q = pm.newQuery(User.class);
+			Query q = pm.newQuery(Maps.class);
             q.declareParameters("String search");
             q.setFilter("name.startsWith(search)");
             map = (List<Maps>) q.execute(search);
