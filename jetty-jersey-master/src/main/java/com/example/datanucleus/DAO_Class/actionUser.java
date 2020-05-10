@@ -83,4 +83,8 @@ public interface actionUser {
 	 * @return the list of friends of the user restricted by the search toolbar
 	 * */
 	List<User> restrictedFriendList(String search);
+	/**
+	 * @return  true if the friend list is modified
+	 */
+	boolean editFriendList(String user, List<User> flist);
 }

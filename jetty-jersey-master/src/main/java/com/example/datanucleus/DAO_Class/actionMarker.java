@@ -8,7 +8,7 @@ public interface actionMarker {
 	/**
 	 * @return the name of the marker
 	 * */
-	Marker getName();
+	String getName(String marker);
 	/**
 	 * @return the list of images from the marker
 	 * */
@@ -46,4 +46,28 @@ public interface actionMarker {
 	 * Delete a message from the marker
 	 * */
 	boolean deleteMessage(String msg);
+	/**
+	 * @return true if a marker is created
+	 */
+	boolean createMarker(String name);
+	/**
+	 * return true if a marker is deleted
+	 */
+	boolean delMarker(String name);
+	/**
+	 * @return true if the name is modified
+	 */
+	boolean EditMarkerName(String current, String newName);
+	/**
+	 * @return a restricted list of marker
+	 */
+	List<Marker> getRestrictedMarker(String search);
+	/**
+	 * @return all marker
+	 */
+	List<Marker> getMarker();
+	/**
+	 * @return true if the position is edited
+	 */
+	boolean editPos(String name,int lat, int longi);
 }

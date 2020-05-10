@@ -1,6 +1,7 @@
 package DaoPersistence;
 
 import java.util.List;
+import java.awt.Image;
 import java.io.IOException;
 import java.util.ArrayList;
 
@@ -16,94 +17,76 @@ import com.example.datanucleus.DAO_Class.Marker;
 import com.example.datanucleus.DAO_Class.Position;
 import com.example.datanucleus.DAO_Class.User;
 import com.example.datanucleus.DAO_Class.actionMaps;
+import com.example.datanucleus.DAO_Class.actionMarker;
 
-public class MapPers implements actionMaps {
+public class MarkerPers implements actionMarker {
 	
 	private PersistenceManagerFactory pmf;
 
-	public MapPers(PersistenceManagerFactory pmf) {
+	public MarkerPers(PersistenceManagerFactory pmf) {
 		this.pmf = pmf;
 	}
 
 	@Override
-	public String getName(String name) {
+	public String getName(String marker) {
 		// TODO Auto-generated method stub
-		Maps m = getRestrictedMap(name).get(0);
-		return m.getName();
-	}
-	
-
-	@Override
-	public List<Marker> getMarker(String map) {
-		Maps m = getRestrictedMap(map).get(0);
-		return m.getMark();
+		return null;
 	}
 
 	@Override
-	public List<Event> getEvent(String map) {
-		Maps m = getRestrictedMap(map).get(0);
-		return m.getEv();
-	}
-
-	@Override
-	public List<User> getAcess(String map) {
+	public List<Image> getImages() {
 		// TODO Auto-generated method stub
-		Maps m = getRestrictedMap(map).get(0);
-		return m.getAccess();
+		return null;
 	}
 
 	@Override
-	public boolean printMap() {
+	public List<String> getMessages() {
 		// TODO Auto-generated method stub
-		//� faire en JS
-		return false;
+		return null;
 	}
 
 	@Override
-	public boolean shareMap(Maps m, User friend) {
+	public Position getPosition() {
 		// TODO Auto-generated method stub
-		//� faire en JS
-		return false;
+		return null;
 	}
 
 	@Override
-	public boolean unshareMap(Maps m, User friend) {
+	public Duration getDuration() {
 		// TODO Auto-generated method stub
-		//� faire en JS
-		return false;
+		return null;
 	}
 
 	@Override
-	public boolean addMarker(String name, Position localisation) {
+	public boolean addImage(String way) {
 		// TODO Auto-generated method stub
 		return false;
 	}
 
 	@Override
-	public boolean deleteMarker(String mark) {
-		return false;
-	}
-
-	@Override
-	public boolean addEvent(String name, Position localisation, Duration time) {
+	public boolean deleteImage(Image img) {
 		// TODO Auto-generated method stub
 		return false;
 	}
 
 	@Override
-	public boolean deleteEvent(String evt) {
+	public boolean addMessage(String msg) {
+		// TODO Auto-generated method stub
 		return false;
 	}
 
-
-
+	@Override
+	public boolean deleteMessage(String msg) {
+		// TODO Auto-generated method stub
+		return false;
+	}
 
 	@Override
-	public boolean createMap(String name) {
+	public boolean createMarker(String name) {
 		// TODO Auto-generated method stub
 		PersistenceManager pm = pmf.getPersistenceManager();
 		Transaction tx = pm.currentTransaction();
-		Maps u = new Maps(name);
+		Marker u = new Marker(name, null);
 		boolean ret = true;
 		try {
 			tx.begin();
@@ -120,17 +103,44 @@ public class MapPers implements actionMaps {
 	}
 
 	@Override
-	public boolean editMapName(String current,String newName) {
+	public boolean delMarker(String name) {
 		// TODO Auto-generated method stub
 		PersistenceManager pm = pmf.getPersistenceManager();
 		Transaction tx = pm.currentTransaction();
 		boolean ret = true;
 		try {
 			tx.begin();
-			Maps u = this.getRestrictedMap(current).get(0);
+			Marker u = this.getRestrictedMarker(name).get(0);
+			int markerid = u.getId();
+			if(u!=null) {
+				Query q = pm.newQuery(Marker.class);
+				q.declareParameters("Integer markerid");
+				q.setFilter("id == markerid");
+				q.deletePersistentAll(markerid);
+				tx.commit();
+			}
+		} finally {
+			if (tx.isActive()) {
+				tx.rollback();
+				ret = false;
+			}
+			pm.close();
+		}
+		return ret;
+	}
+
+	@Override
+	public boolean EditMarkerName(String current,String newName) {
+		// TODO Auto-generated method stub
+		PersistenceManager pm = pmf.getPersistenceManager();
+		Transaction tx = pm.currentTransaction();
+		boolean ret = true;
+		try {
+			tx.begin();
+			Marker u = this.getRestrictedMarker(current).get(0);
 			if(u!=null) {
 				u.setName(newName);
-				this.delMap(current);
+				this.delMarker(current);
 				Query q = pm.newQuery(Maps.class);
 				pm.makePersistent(u);
 				tx.commit();
@@ -146,43 +156,41 @@ public class MapPers implements actionMaps {
 	}
 
 	@Override
-	public boolean editMapId(String user, int id) {
+	public List<Marker> getRestrictedMarker(String search) {
 		// TODO Auto-generated method stub
-		PersistenceManager pm = pmf.getPersistenceManager();
-		Transaction tx = pm.currentTransaction();
-		boolean ret = true;
-		try {
-			tx.begin();
-			Maps u = this.getRestrictedMap(user).get(0);
-			if(u!=null) {
-				u.setId(id);
-				this.delMap(user);
-				Query q = pm.newQuery(Maps.class);
-				pm.makePersistent(u);
-				tx.commit();
-			}
-		} finally {
-			if (tx.isActive()) {
-				tx.rollback();
-				ret = false;
-			}
-			pm.close();
-		} 
-		return ret;
-	}
-
-	@Override
-	public List<Maps> getMap() {
-		// TODO Auto-generated method stub
-		List<Maps> users = null;
-		List<Maps> detached = new ArrayList<Maps>();
+		List<Marker> mark = null;
+		List<Marker> detached = new ArrayList<Marker>();
 		PersistenceManager pm = pmf.getPersistenceManager();
 		Transaction tx = pm.currentTransaction();
 		try {
 			tx.begin();
 			Query q = pm.newQuery(User.class);
-			users = (List<Maps>) q.execute("");
-			detached = (List<Maps>) pm.detachCopyAll(users);
+            q.declareParameters("String search");
+            q.setFilter("name.startsWith(search)");
+            mark = (List<Marker>) q.execute(search);
+			detached = (List<Marker>) pm.detachCopyAll(mark);
+			tx.commit();
+		} finally {
+			if (tx.isActive()) {
+				tx.rollback();
+			}
+			pm.close();
+			return detached;
+		}
+	}
+
+	@Override
+	public List<Marker> getMarker() {
+		// TODO Auto-generated method stub
+		List<Marker> users = null;
+		List<Marker> detached = new ArrayList<Marker>();
+		PersistenceManager pm = pmf.getPersistenceManager();
+		Transaction tx = pm.currentTransaction();
+		try {
+			tx.begin();
+			Query q = pm.newQuery(User.class);
+			users = (List<Marker>) q.execute("");
+			detached = (List<Marker>) pm.detachCopyAll(users);
 			tx.commit();
 		} finally {
 			if (tx.isActive()) {
@@ -192,48 +200,23 @@ public class MapPers implements actionMaps {
 			System.out.println(detached);
 			return detached;
 		}
-
 	}
 
 	@Override
-	public List<Maps> getRestrictedMap(String search) {
-		// TODO Auto-generated method stub
-		List<Maps> map = null;
-		List<Maps> detached = new ArrayList<Maps>();
-		PersistenceManager pm = pmf.getPersistenceManager();
-		Transaction tx = pm.currentTransaction();
-		try {
-			tx.begin();
-			Query q = pm.newQuery(User.class);
-            q.declareParameters("String search");
-            q.setFilter("name.startsWith(search)");
-            map = (List<Maps>) q.execute(search);
-			detached = (List<Maps>) pm.detachCopyAll(map);
-			tx.commit();
-		} finally {
-			if (tx.isActive()) {
-				tx.rollback();
-			}
-			pm.close();
-			return detached;
-		}
-	}
-
-	@Override
-	public boolean delMap(String map) {
+	public boolean editPos(String name,int lat, int longi) {
 		// TODO Auto-generated method stub
 		PersistenceManager pm = pmf.getPersistenceManager();
 		Transaction tx = pm.currentTransaction();
+		Position p = new Position(lat, longi);
 		boolean ret = true;
 		try {
 			tx.begin();
-			Maps u = this.getRestrictedMap(map).get(0);
-			int mapid = u.getId();
+			Marker u = this.getRestrictedMarker(name).get(0);
 			if(u!=null) {
-				Query q = pm.newQuery(Maps.class);
-				q.declareParameters("Integer mapid");
-				q.setFilter("id == mapid");
-				q.deletePersistentAll(mapid);
+				u.setLocalisation(p);
+				this.delMarker(name);
+				Query q = pm.newQuery(Marker.class);
+				pm.makePersistent(u);
 				tx.commit();
 			}
 		} finally {
@@ -242,8 +225,9 @@ public class MapPers implements actionMaps {
 				ret = false;
 			}
 			pm.close();
-		}
+		} 
 		return ret;
 	}
-
+	
+	
 }
