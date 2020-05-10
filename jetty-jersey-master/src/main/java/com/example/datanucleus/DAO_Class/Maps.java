@@ -7,11 +7,7 @@ package com.example.datanucleus.DAO_Class;
 
 import java.util.ArrayList;
 import java.util.List;
-
-import javax.jdo.annotations.IdGeneratorStrategy;
 import javax.jdo.annotations.PersistenceCapable;
-import javax.jdo.annotations.Persistent;
-import javax.jdo.annotations.PrimaryKey;
 
 /**
  *
@@ -20,21 +16,17 @@ import javax.jdo.annotations.PrimaryKey;
 @PersistenceCapable
 public class Maps{
     private String name;
-	 @Persistent(dependentElement = "true")
     private List <Marker> mark;
-	 @Persistent(dependentElement = "true")
     private List <Event> ev;
-	 @Persistent(dependentElement = "false")
     private List <User> access;
-	 @PrimaryKey
-	 @Persistent(valueStrategy = IdGeneratorStrategy.INCREMENT)
     private int id;
     
-    public Maps(String n) {
+    public Maps(String n,int i) {
     	this.name = n;
     	this.mark = new ArrayList<>();
     	this.ev = new ArrayList<>();
     	this.access = new ArrayList<>();
+    	this.id = i;
     }
 
 	public String getName() {

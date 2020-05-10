@@ -30,7 +30,7 @@ public interface actionUser {
 	/**
 	 * @return true if an user is created
 	 */
-	boolean createUser(String name);
+	boolean createUser(/*String name*/User u);
 	/**
 	 * @return true if an user is deleted 
 	 */
@@ -83,8 +83,4 @@ public interface actionUser {
 	 * @return the list of friends of the user restricted by the search toolbar
 	 * */
 	List<User> restrictedFriendList(String search);
-	/**
-	 * @return  true if the friend list is modified
-	 */
-	boolean editFriendList(String user, List<User> flist);
 }

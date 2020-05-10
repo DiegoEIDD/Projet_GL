@@ -4,11 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 import com.example.datanucleus.DAO_Class.Maps;
 import com.example.datanucleus.DAO_Class.Position;
-
-import javax.jdo.annotations.IdGeneratorStrategy;
 import javax.jdo.annotations.PersistenceCapable;
-import javax.jdo.annotations.Persistent;
-import javax.jdo.annotations.PrimaryKey;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -24,22 +20,28 @@ import javax.jdo.annotations.PrimaryKey;
 public class User{
     
 	 private String name;
+	 private String email;
 	 private String password;
-	 @Persistent(dependentElement = "true")
 	 private List <Maps> map;
-	 @Persistent(dependentElement = "false")
 	 private List<User> friend;
 	 //private Access acc;
-	 @PrimaryKey
-	 @Persistent(valueStrategy = IdGeneratorStrategy.INCREMENT)
 	 private int id;
 	 
 	 public User(String n, String p) {
 		 this.name = n;
 		 this.password = p;
 		 this.map = new ArrayList<Maps>();
+		 this.id = i;
 		 this.friend = new ArrayList<User>();
 	 }
+	 
+	public String getEmail() {
+		return email;
+	}
+
+	public void setEmail(String name) {
+		this.email = email;
+	}
 
 	public List<User> getFriend() {
 		return friend;

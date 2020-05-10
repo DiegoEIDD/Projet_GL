@@ -9,30 +9,23 @@ import java.awt.Image;
 import java.util.ArrayList;
 import java.util.List;
 
-import javax.jdo.annotations.IdGeneratorStrategy;
-import javax.jdo.annotations.Persistent;
-import javax.jdo.annotations.PrimaryKey;
-
 /**
  *
  * @author Groupe3
  */
 public class Marker{
     private String name;
-	 @Persistent(dependentElement = "true")
     private List<Image> picture;
-	 @Persistent(dependentElement = "true")
     private List <String> message;
     private Position localisation;
-	 @PrimaryKey
-	 @Persistent(valueStrategy = IdGeneratorStrategy.INCREMENT)
     private int id;
     
-    public Marker(String n, Position l) {
+    public Marker(String n, Position l, int i) {
     	this.name = n;
     	this.picture = new ArrayList<>();
     	this.message = new ArrayList<>();
     	this.localisation = l;
+    	this.id = i;
     }
 
 	public String getName() {
@@ -74,6 +67,5 @@ public class Marker{
 	public void setId(int id) {
 		this.id = id;
 	}
-	
     
 }

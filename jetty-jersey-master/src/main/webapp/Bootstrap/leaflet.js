@@ -62,8 +62,8 @@ var active = false;
 document.getElementById('markID').addEventListener('click',function () {
   function onClick(e) { 
     var marker = L.marker(e.latlng, { draggable: true }).addTo(mymap);
-  marker.bindPopup('<div class="input-group input-group-sm"><label for="recipient-name" class="col-form-label">Marker name:</label><input type="text" placeholder="Name" class="form-control" id="recipient-name"></div>  <br><a href="#" data-toggle="modal" data-target="#addMessage" data-whatever="@mdo"> <i class="far fa-circle"></i><span>Add message</span></a><br><br><a href="#" data-toggle="modal" data-target="#addImage" data-whatever="@mdo"> <i class="far fa-circle"></i><span>Add Image</span></a> <br><br><a href="#" data-toggle="modal" data-target="#markMenu" data-whatever="@mdo"> <i class="far fa-circle"></i><span>See Marker</span></a>').openPopup(); 
-  marker.on('dblclick', function(e) {
+    marker.bindPopup('<div class="input-group input-group-sm"><label for="recipient-name" class="col-form-label">Marker name:</label><input type="text" placeholder="Name" class="form-control" id="recipient-name"></div>  <br><a href="#" data-toggle="modal" data-target="#addMessage" data-whatever="@mdo"> <i class="far fa-circle"></i><span>Add message</span></a><br><br><a href="#" data-toggle="modal" data-target="#addImage" data-whatever="@mdo"> <i class="far fa-circle"></i><span>Add Image</span></a> <br><br><a href="#" data-toggle="modal" data-target="#markMenu" data-whatever="@mdo"> <i class="far fa-circle"></i><span>See Marker</span></a>').openPopup(); 
+    marker.on('dblclick', function(e) {
     console.log(e);
     mymap.removeLayer(marker);
   })
