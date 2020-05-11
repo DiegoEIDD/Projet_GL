@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 import com.example.datanucleus.DAO_Class.Maps;
 import com.example.datanucleus.DAO_Class.Position;
+import javax.jdo.annotations.PersistenceCapable;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -15,21 +16,78 @@ import com.example.datanucleus.DAO_Class.Position;
  *
  * @author Groupe3
  */
+@PersistenceCapable
 public class User{
     
-	 public String name;
-	 public String password;
-	 public List <Maps> map;
-	 //Access: list de maps
-	 public Access acc;
-	 //public Position localisation;
-	 public int id;
+	 private String name;
+	 private String email;
+	 private String password;
+	 private List <Maps> map;
+	 private List<User> friend;
+	 //private Access acc;
+	 private int id;
 	 
-	 public User(String n, String p, int i) {
+	 public User(String n, String p) {
 		 this.name = n;
 		 this.password = p;
-		 this.map = new ArrayList<>();
-		 //this.acc = a;
-		 this.id = i;
+		 this.map = new ArrayList<Maps>();
+		 this.friend = new ArrayList<User>();
 	 }
+	 
+	public String getEmail() {
+		return email;
+	}
+
+	public void setEmail(String name) {
+		this.email = email;
+	}
+
+	public List<User> getFriend() {
+		return friend;
+	}
+
+	public void setFriend(List<User> u) {
+		this.friend = u;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public String getPassword() {
+		return password;
+	}
+
+	public void setPassword(String password) {
+		this.password = password;
+	}
+
+	public List<Maps> getMap() {
+		return map;
+	}
+
+	public void setMap(List<Maps> map) {
+		this.map = map;
+	}
+/*
+	public Access getAcc() {
+		return acc;
+	}
+
+	public void setAcc(Access acc) {
+		this.acc = acc;
+	}
+*/
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
+	}
+	 
 }

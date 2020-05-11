@@ -18,6 +18,7 @@ import javax.ws.rs.core.MediaType;
 
 import com.example.datanucleus.DAO_Class.Duration;
 import com.example.datanucleus.DAO_Class.Position;
+import com.example.datanucleus.DAO_Class.Marker;
 import com.example.datanucleus.DAO_Class.actionMarker;
 
 @Path("/marker")

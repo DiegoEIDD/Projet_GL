@@ -4,24 +4,46 @@ package com.example.datanucleus.DAO_Class;
 import java.util.List;
 
 public interface actionMaps {
-	
+	/**
+	 * @return all map
+	 */
+	List<Maps> getMap();
+	/**
+	 * @return a list of map restricted by a string
+	 */
+	List<Maps> getRestrictedMap(String search);
 	/**
 	 * @return the name of the map
 	 * */
-	User getName();
+	String getName(String map);
 	/**
 	 * @return the list of markers on the map
 	 * */
-	List<Marker> getMarker();
+	List<Marker> getMarker(String map);
 	/**
 	 * @return the list of events on the map
 	 * */
-	List<Event> getEvent();
+	List<Event> getEvent(String map);
 	/**
 	 * @return the list of people who have access to the map
 	 * */
-	List<User> getAcess();
-	
+	List<User> getAcess(String map);
+	/**
+	 * @return true if a map is created
+	 */
+	boolean createMap(String name);
+	/**
+	 * @return true if the map is deleted
+	 */
+	boolean delMap(String map);
+	/**
+	 * @return true if the map's name is edited
+	 */
+	boolean editMapName(String current, String newName);
+	/**
+	 * @return true if id is edited
+	 */
+	boolean editMapId(String name, int id );
 	/**
 	 * Print the image of the map on the screen
 	 * */
@@ -48,7 +70,7 @@ public interface actionMaps {
 	 * @param point of type marker
 	 * Delete a marker from the map
 	 * */
-	boolean deleteMarker(Marker point);
+	boolean deleteMarker(String point);
 	/**
 	 * @param name of type String
 	 * @param localisation of type Position
@@ -60,5 +82,5 @@ public interface actionMaps {
 	 * @param ev of type Event
 	 * Delete an event from the map
 	 * */
-	boolean deleteEvent(Event evt);
+	boolean deleteEvent(String evt);
 }
