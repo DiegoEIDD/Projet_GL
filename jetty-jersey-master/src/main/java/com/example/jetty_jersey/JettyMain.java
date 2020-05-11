@@ -29,14 +29,14 @@ public class JettyMain {
 
 		// Configure Jersey
 		ResourceConfig rc = new ResourceConfig();
-		rc.packages(true, "com.example.jetty_jersey.wsStub");
+		rc.packages(true, "com.example.jetty_jersey.ws");
 		rc.register(JacksonFeature.class);
 		rc.register(LoggingFilter.class);
 
 		// Add a servlet handler for web services (/ws/*)
 		ServletHolder servletHolder = new ServletHolder(new ServletContainer(rc));
 		ServletContextHandler handlerWebServices = new ServletContextHandler(ServletContextHandler.SESSIONS);
-		handlerWebServices.setContextPath("/wsStub");
+		handlerWebServices.setContextPath("/ws");
 		handlerWebServices.addServlet(servletHolder, "/*");
 
 		// Add a handler for resources (/*)

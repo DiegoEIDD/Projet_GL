@@ -1,4 +1,7 @@
-package DAO_Class;
+package com.example.datanucleus.DAO_Class;
+
+import javax.jdo.JDOHelper;
+import javax.jdo.PersistenceManagerFactory;
 
 import com.example.datanucleus.DAO_Class.actionUser;
 import DaoPersistence.UserPers;

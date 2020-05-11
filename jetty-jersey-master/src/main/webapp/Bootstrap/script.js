@@ -54,7 +54,7 @@ login = () =>{
 /*function login(){*/
     console.log("function login() called");
     console.log(document.getElementById("password").value);
-    postServerData("../../java/com/example/jetty-jersey/ws/account/login","username="+document.getElementById("username").value+"&password="+document.getElementById("password").value,function(result){
+    postServerData("../ws/user/login","username="+document.getElementById("username").value+"&password="+document.getElementById("password").value,function(result){
 		console.log(result);
 	});
 }
@@ -63,7 +63,7 @@ signUp = () =>{
 /*function signUp(){*/
     console.log("function signUp() called");
     console.log(document.getElementById("passSign").value);
-    postServerData("../../java/com/example/jetty-jersey/ws/account/signUp","userSign="+document.getElementById("userSign").value+"&email="+document.getElementById("email").value+"&passSign="+document.getElementById("passSign").value,function(result){
+    postServerData("../ws/user/signUp","userSign="+document.getElementById("userSign").value+"&email="+document.getElementById("email").value+"&passSign="+document.getElementById("passSign").value,function(result){
 		console.log(result);
 	});
 }
