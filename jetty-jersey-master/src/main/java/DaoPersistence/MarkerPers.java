@@ -16,7 +16,6 @@ import com.example.datanucleus.DAO_Class.Maps;
 import com.example.datanucleus.DAO_Class.Marker;
 import com.example.datanucleus.DAO_Class.Position;
 import com.example.datanucleus.DAO_Class.User;
-import com.example.datanucleus.DAO_Class.actionMaps;
 import com.example.datanucleus.DAO_Class.actionMarker;
 
 public class MarkerPers implements actionMarker {

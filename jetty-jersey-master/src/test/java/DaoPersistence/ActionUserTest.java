@@ -41,10 +41,9 @@ public class ActionUserTest {
 	    Assert.assertTrue(m.createMap("map"));	    
 		Assert.assertEquals(1, m.getMap().size());
 		
-		/*Assert.assertEquals(0, mark.getMarker().size());
-		Assert.assertEquals(0, mark.createMarker("m"));
 		Assert.assertEquals(0, mark.getMarker().size());
-*/
+		Assert.assertTrue(mark.createMarker("m"));
+		Assert.assertEquals(1, mark.getMarker().size());
 
 
 

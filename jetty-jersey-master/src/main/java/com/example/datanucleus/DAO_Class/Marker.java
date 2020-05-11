@@ -5,20 +5,18 @@
  */
 package com.example.datanucleus.DAO_Class;
 
-import java.awt.Image;
 import java.util.ArrayList;
 import java.util.List;
-
 import javax.jdo.annotations.PersistenceCapable;
 
 /**
  *
  * @author Groupe3
  */
-
+@PersistenceCapable
 public class Marker{
     private String name;
-    private List<Image> picture;
+    //private List<Image> picture;
     private List <String> message;
     private int lat;
     private int lon;
@@ -26,7 +24,7 @@ public class Marker{
     
     public Marker(String n) {
     	this.name = n;
-    	this.picture = new ArrayList<>();
+    	//this.picture = new ArrayList<>();
     	this.message = new ArrayList<>();
     }
 
@@ -53,7 +51,7 @@ public class Marker{
 	public void setName(String name) {
 		this.name = name;
 	}
-
+/*
 	public List<Image> getPicture() {
 		return picture;
 	}
@@ -61,7 +59,7 @@ public class Marker{
 	public void setPicture(List<Image> picture) {
 		this.picture = picture;
 	}
-
+*/
 	public List<String> getMessage() {
 		return message;
 	}
