@@ -75,7 +75,7 @@ signUp = () =>{
             document.location.href="../Bootstrap/home.html";
         }
         else{
-        alert("All fields must be completed");
+        alert(result);
         }
 	});
 }
