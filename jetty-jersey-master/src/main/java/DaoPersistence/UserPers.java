@@ -181,7 +181,7 @@ public class UserPers implements actionUser{
 			tx.begin();
 			Query q = pm.newQuery(User.class);
             q.declareParameters("String search");
-            q.setFilter("name.startsWith(search)");
+            q.setFilter("name == search");
             map = (List<User>) q.execute(search);
 			detached = (List<User>) pm.detachCopyAll(map);
 			tx.commit();

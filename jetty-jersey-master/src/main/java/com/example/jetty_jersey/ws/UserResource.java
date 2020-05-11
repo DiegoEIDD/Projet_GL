@@ -35,22 +35,21 @@ public class UserResource{
 	@GET
 	@Produces(MediaType.APPLICATION_JSON)
 	@Path("/name")
-	public User getName() {
+	public String getName(User u2) {
 		// actionUser.getInstance().getName();
 		Access a = new Access();
-		User u = new User("juninho", "pernambucano",a);
-		return u;
+		User u = new User("juninho", "pernambucano");
+		return u.getName();
 	}
 	
 	@GET
 	@Produces(MediaType.APPLICATION_JSON)
 	@Path("/password")
-	public User getPassword() {
+	public String getPassword(User u1) {
 		// actionUser.getInstance().getPassword();
 		Access a = new Access();
-		User u = new User("juninho", "pernambucano",a);
-		u.password = "password";
-		return u;
+		User u = new User("juninho", "pernambucano");
+		return u.getPassword();
 	}
 
 	public static class Toto {
@@ -201,7 +200,7 @@ public class UserResource{
 			return "All fields must be completed";
 		}
 		actionUser uAction = DAO.getName();
-		if(!Objects.isNull(uAction.getName(name))){
+		if(uAction.restrictedFriendList(name).size()!=0){
 			return "Username already exist";
 		}
 		User u = new User(name,mdp);

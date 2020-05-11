@@ -55,8 +55,14 @@ login = () =>{
     console.log("function login() called");
     console.log(document.getElementById("password").value);
     postServerData("../ws/user/login","username="+document.getElementById("username").value+"&password="+document.getElementById("password").value,function(result){
-		console.log(result);
-	});
+        console.log(result);
+        if(result === "Connected"){
+            document.location.href="../Bootstrap/map.html";
+        }
+        else{
+        alert("All fields must be completed");
+        }
+    });
 }
 
 signUp = () =>{
@@ -64,13 +70,12 @@ signUp = () =>{
     console.log("function signUp() called");
     console.log(document.getElementById("passSign").value);
     postServerData("../ws/user/signUp","userSign="+document.getElementById("userSign").value+"&email="+document.getElementById("email").value+"&passSign="+document.getElementById("passSign").value,function(result){
-		console.log(result);
+        console.log(result);
+        if(result === "Sign Up completed"){
+            document.location.href="../Bootstrap/home.html";
+        }
+        else{
+        alert(result);
+        }
 	});
 }
-/*
-if(result.equals("Sign Up completed")){
-    document.location.href="../Bootstrap/home.html";
-}
-else{
-    alert("All fields must be completed");
-}*/

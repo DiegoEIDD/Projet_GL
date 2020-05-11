@@ -86,6 +86,15 @@ public class MarkerPers implements actionMarker {
 		PersistenceManager pm = pmf.getPersistenceManager();
 		Transaction tx = pm.currentTransaction();
 		Marker u = new Marker(name);
+		int id =0;
+		if(this.getMarker().size()!=0) {
+			for(int i = 0;i<this.getMarker().size();i++) {
+				if(id<this.getMarker().get(i).getId()) {
+					id=this.getMarker().get(i).getId();
+				}
+			
+			}
+		}
 		boolean ret = true;
 		try {
 			tx.begin();
