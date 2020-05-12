@@ -18,29 +18,36 @@ public class Marker{
     private String name;
     //private List<Image> picture;
     private List <String> message;
-    private int lat;
-    private int lon;
+    private float lat;
+    private float lon;
     private int id;
     
+    public Marker(String n, float a, float b) {
+    	this.name = n;
+    	this.lat=a;
+    	this.lon=b;
+    	//this.picture = new ArrayList<>();
+    	this.message = new ArrayList<>();
+    }
     public Marker(String n) {
     	this.name = n;
     	//this.picture = new ArrayList<>();
     	this.message = new ArrayList<>();
     }
 
-	public int getLat() {
+	public float getLat() {
 		return lat;
 	}
 
-	public void setLat(int lat) {
+	public void setLat(float lat) {
 		this.lat = lat;
 	}
 
-	public int getLon() {
+	public float getLon() {
 		return lon;
 	}
 
-	public void setLon(int lon) {
+	public void setLon(float lon) {
 		this.lon = lon;
 	}
 

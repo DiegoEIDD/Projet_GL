@@ -2,9 +2,11 @@ package com.example.jetty_jersey.ws;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 import javax.ws.rs.Consumes;
 import javax.ws.rs.DELETE;
+import javax.ws.rs.FormParam;
 import javax.ws.rs.GET;
 import javax.ws.rs.POST;
 import javax.ws.rs.PUT;
@@ -13,6 +15,7 @@ import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 
 import com.example.datanucleus.DAO_Class.Access;
+import com.example.datanucleus.DAO_Class.DAO;
 import com.example.datanucleus.DAO_Class.Duration;
 import com.example.datanucleus.DAO_Class.Event;
 import com.example.datanucleus.DAO_Class.Maps;
@@ -20,7 +23,8 @@ import com.example.datanucleus.DAO_Class.Marker;
 import com.example.datanucleus.DAO_Class.Position;
 import com.example.datanucleus.DAO_Class.User;
 import com.example.datanucleus.DAO_Class.actionMaps;
-
+import com.example.datanucleus.DAO_Class.actionUser;
+import com.example.datanucleus.DAO_Class.actionMarker;
 @Path("/map")
 public class MapResource{
 
@@ -57,7 +61,7 @@ public class MapResource{
 		return true;
 	}
 
-	@GET
+	/*@GET
 	@Produces(MediaType.APPLICATION_JSON)
 	@Path("/markers")
 	public List<Marker> getMarker() {
@@ -70,7 +74,7 @@ public class MapResource{
 		lMark.add(mark1);
 		lMark.add(mark2);
 		return lMark;
-	}
+	}*/
 	
 	@DELETE
 	@Consumes(MediaType.APPLICATION_JSON)
@@ -101,10 +105,13 @@ public class MapResource{
 	@Consumes(MediaType.APPLICATION_JSON)
 	@Produces(MediaType.APPLICATION_JSON)
 	@Path("/addMark")
-	public boolean addMarker(/*String name, Position localisation*/) {
-		//actionMaps.getInstance().addMarker(name, localisation);
-		//mark.add();
-		return true;
+	public boolean addMarker() {
+		/*actionMarker uAction = DAO.getName1();
+		Marker m = new Marker(name,a,b);
+		uAction.createMarker(m);
+		
+		
+		return true;*/
 	}
 	
 	@PUT

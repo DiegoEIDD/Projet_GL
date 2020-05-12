@@ -9,6 +9,7 @@ import java.util.List;
 import javax.imageio.ImageIO;
 import javax.ws.rs.Consumes;
 import javax.ws.rs.DELETE;
+import javax.ws.rs.FormParam;
 import javax.ws.rs.GET;
 import javax.ws.rs.POST;
 import javax.ws.rs.PUT;
@@ -16,10 +17,13 @@ import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 
+import com.example.datanucleus.DAO_Class.DAO;
 import com.example.datanucleus.DAO_Class.Duration;
 import com.example.datanucleus.DAO_Class.Position;
+import com.example.datanucleus.DAO_Class.User;
 import com.example.datanucleus.DAO_Class.Marker;
 import com.example.datanucleus.DAO_Class.actionMarker;
+import com.example.datanucleus.DAO_Class.actionUser;
 
 @Path("/marker")
 public class MarkerResource{
@@ -58,12 +62,36 @@ public class MarkerResource{
 	@GET
 	@Produces(MediaType.APPLICATION_JSON)
 	@Path("name")
-	public Marker getName() {
+	public String getName() {
 		//return actionMarker.getInstance().getName();
-		Position pos = new Position(1,2);
-		Marker m = new Marker("Mark",pos);
-		return name;
+		
+		Marker m = new Marker("Mark",1,2);
+		return m.getName();
 	}
+	
+	@POST
+	@Consumes(MediaType.APPLICATION_JSON)
+	@Produces(MediaType.APPLICATION_JSON)
+	@Path("/create")
+	public boolean create(@FormParam("markeradd") String name ,@FormParam("lat") float a,@FormParam("lon") float b) {
+		actionMarker uAction = DAO.getMark();
+		Marker m=new Marker(name, a,b);
+		return uAction.createMarker(m);
+		
+		
+		
+	}
+	
+	@GET
+	@Produces(MediaType.APPLICATION_JSON)
+	@Path("/getmarker")
+	public List<Marker> getMarker() {
+		System.out.printf("aa");
+		actionMarker uAction = DAO.getMark();
+		return uAction.getMarker();
+		
+	}
+	
 	
 //	@GET
 //	@Produces(MediaType.APPLICATION_JSON)

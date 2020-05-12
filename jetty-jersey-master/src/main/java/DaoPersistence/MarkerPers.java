@@ -81,11 +81,15 @@ public class MarkerPers implements actionMarker {
 	}
 
 	@Override
-	public boolean createMarker(String name) {
+	public boolean createMarker(Marker m) {
 		// TODO Auto-generated method stub
 		PersistenceManager pm = pmf.getPersistenceManager();
 		Transaction tx = pm.currentTransaction();
+<<<<<<< Updated upstream
 		Marker u = new Marker(name);
+=======
+		
+>>>>>>> Stashed changes
 		int id =0;
 		if(this.getMarker().size()!=0) {
 			for(int i = 0;i<this.getMarker().size();i++) {
@@ -98,7 +102,7 @@ public class MarkerPers implements actionMarker {
 		boolean ret = true;
 		try {
 			tx.begin();
-			pm.makePersistent(u);
+			pm.makePersistent(m);
 			tx.commit();
 		} finally {
 			if (tx.isActive()) {

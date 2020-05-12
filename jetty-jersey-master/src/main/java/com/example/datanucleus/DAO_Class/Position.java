@@ -10,10 +10,10 @@ package com.example.datanucleus.DAO_Class;
  * @author Groupe3
  */
 public class Position {
-    public int latitude;
-    public int longitude;
+    public double latitude;
+    public double longitude;
     
-    public Position(int la, int lo) {
+    public Position(double la, double lo) {
     	this.latitude = la;
     	this.longitude = lo;
     }

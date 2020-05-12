@@ -49,7 +49,7 @@ public interface actionMarker {
 	/**
 	 * @return true if a marker is created
 	 */
-	boolean createMarker(String name);
+	boolean createMarker(Marker m);
 	/**
 	 * @return true if a marker is deleted
 	 */

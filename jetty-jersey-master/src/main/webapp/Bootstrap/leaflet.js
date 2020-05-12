@@ -1,3 +1,61 @@
+function getServerData(url, success) {
+    $.ajax({
+        dataType: "json",
+        url: url
+    }).done(success);
+}
+
+
+function putServerData(url, data, success){
+    console.log(data);
+    $.ajax({
+      url: url,
+      type: "put",
+      contentType: "application/json",
+      dataType: "json",
+      data: data,
+    }).done(success);
+}
+
+function deleteServerData(url, data, success){
+    console.log(data);
+    $.ajax({
+        type: 'DELETE',
+        data: data,
+        url:url
+    }).done(success);
+}
+
+function postServerData(url, data, success){
+  console.log(data);
+  $.ajax({
+    type: 'POST',
+    data: data,
+    url:url
+  }).done(success);
+}
+
+var pos;
+function createMarker(){
+    console.log("function createMarker() called");
+    console.log(document.getElementById("markername").value);
+    var a={'markeradd':document.getElementById('markername').value,'lat':pos.lat, 'lon':pos.lng};
+    
+    postServerData("../ws/marker/create",a ,function(result){
+        console.log(result);
+        if(!result){
+          alert("failed");
+      }
+     
+	});
+}
+function getMarker(){
+  console.log("function getMarker called");
+  getServerData("/ws/marker/getmarker",function(result){
+    console.log(result);
+})
+}
+
 $(function (){
 
   var mymap = L.map('mapleflet1').setView([48.8278364, 2.3806668], 15);
@@ -28,6 +86,8 @@ $(function (){
     }).addTo(mymap);
 */
 
+
+mymap.on('click', getMarker);
 var route = L.Routing.control({});
 $('#itinerary').on('click', function() {
   if($('.leaflet-routing-container').is(':visible')){
@@ -39,9 +99,6 @@ $('#itinerary').on('click', function() {
           L.latLng(48.8278364, 2.3806668),
           L.latLng(48.8278364, 2.6006670)
       ],*/
-      lineOptions: {
-        styles: [{color: '#e43e32', opacity: 1, weight: 3}]
-      },	
       routeWhileDragging: true,
       /*itineraryShown: true,
       autoRoute: true,
@@ -60,12 +117,16 @@ $('#itinerary').on('dblclick', function() {
   $('#itinerary').on('click', function() {
     $('.leaflet-routing-container').is(':visible') ? mymap.removeLayer(route) : route.addTo(mymap);
   }); */
+  
+  
 
 var active = false;
 document.getElementById('markID').addEventListener('click',function () {
   function onClick(e) { 
+    
     var marker = L.marker(e.latlng, { draggable: true }).addTo(mymap);
-    marker.bindPopup('<div class="input-group input-group-sm"><label for="recipient-name" class="col-form-label">Marker name:</label><input type="text" placeholder="Name" class="form-control" id="recipient-name"></div>  <br><a href="#" data-toggle="modal" data-target="#addMessage" data-whatever="@mdo"> <i class="far fa-circle"></i><span>Add message</span></a><br><br><a href="#" data-toggle="modal" data-target="#addImage" data-whatever="@mdo"> <i class="far fa-circle"></i><span>Add Image</span></a> <br><br><a href="#" data-toggle="modal" data-target="#MarkMenu" data-whatever="@mdo"> <i class="far fa-circle"></i><span>See Marker</span></a>').openPopup(); 
+    pos=e.latlng;
+    marker.bindPopup('<div class="input-group input-group-sm"><label for="recipient-name" class="col-form-label">Marker name:</label><input type="text" placeholder="Name" class="form-control" id="recipient-name"></div>  <br> <a href="#" data-toggle="modal" data-target="#addName" data-whatever="@mdo"> <i class="far fa-circle"></i><span>Add name and create marker</span></a> <br><br><a href="#" data-toggle="modal" data-target="#addMessage" data-whatever="@mdo"> <i class="far fa-circle"></i><span>Add message</span></a><br><br><a href="#" data-toggle="modal" data-target="#addImage" data-whatever="@mdo"> <i class="far fa-circle"></i><span>Add Image</span></a> <br><br><a href="#" data-toggle="modal" data-target="#markMenu" data-whatever="@mdo"> <i class="far fa-circle"></i><span>See Marker</span></a>').openPopup(); 
     marker.on('dblclick', function(e) {
     console.log(e);
     mymap.removeLayer(marker);
@@ -109,7 +170,7 @@ if(active){
     document.getElementById('event').addEventListener('click',function () {
       function onClick(e) { 
         var evt = L.marker(e.latlng, { draggable: true, icon: evtIcon }).addTo(mymap);
-        evt.bindPopup('<div class="input-group input-group-sm"><label for="recipient-name" class="col-form-label">Marker name:</label><input type="text" placeholder="Name" class="form-control" id="recipient-name"></div>  <br><a href="#" data-toggle="modal" data-target="#addMessage" data-whatever="@mdo"> <i class="far fa-circle"></i><span>Add message</span></a><br><br><a href="#" data-toggle="modal" data-target="#addImage" data-whatever="@mdo"> <i class="far fa-circle"></i><span>Add Image</span></a> <br><br><a href="#" data-toggle="modal" data-target="#EventMenu" data-whatever="@mdo"> <i class="far fa-circle"></i><span>See Marker</span></a>').openPopup(); 
+        evt.bindPopup('<div class="input-group input-group-sm"><label for="recipient-name" class="col-form-label">Marker name:</label><input type="text" placeholder="Name" class="form-control" id="recipient-name"></div>  <br><a href="#" data-toggle="modal" data-target="#addMessage" data-whatever="@mdo"> <i class="far fa-circle"></i><span>Add message</span></a><br><br><a href="#" data-toggle="modal" data-target="#addImage" data-whatever="@mdo"> <i class="far fa-circle"></i><span>Add Image</span></a> <br><br><a href="#" data-toggle="modal" data-target="#eventMenu" data-whatever="@mdo"> <i class="far fa-circle"></i><span>Duration</span></a> <br><br><a href="#" data-toggle="modal" data-target="#markMenu" data-whatever="@mdo"> <i class="far fa-circle"></i><span>See Marker</span></a>').openPopup(); 
         evt.on('dblclick', function(e) {
           console.log(e);
           mymap.removeLayer(evt);
@@ -139,6 +200,7 @@ if(active){
             console.log('Erreur de localisation =====>', e);
           });
 });
+
 
 
 jQuery(function ($) {
@@ -221,23 +283,3 @@ var modal = $(this)
 modal.find('.modal-title').text('New message to ' + recipient)
 modal.find('.modal-body input').val(recipient)
 })
-
-$('#MarkMenu').on('show.bs.modal', function (event) {
-  var button = $(event.relatedTarget) // Button that triggered the modal
-  var recipient = button.data('whatever') // Extract info from data-* attributes
-  // If necessary, you could initiate an AJAX request here (and then do the updating in a callback).
-  // Update the modal's content. We'll use jQuery here, but you could use a data binding library or other methods instead.
-  var modal = $(this)
-  modal.find('.modal-title').text('New message to ' + recipient)
-  modal.find('.modal-body input').val(recipient)
-  })
-
-  $('#EventMenu').on('show.bs.modal', function (event) {
-    var button = $(event.relatedTarget) // Button that triggered the modal
-    var recipient = button.data('whatever') // Extract info from data-* attributes
-    // If necessary, you could initiate an AJAX request here (and then do the updating in a callback).
-    // Update the modal's content. We'll use jQuery here, but you could use a data binding library or other methods instead.
-    var modal = $(this)
-    modal.find('.modal-title').text('New message to ' + recipient)
-    modal.find('.modal-body input').val(recipient)
-    })
