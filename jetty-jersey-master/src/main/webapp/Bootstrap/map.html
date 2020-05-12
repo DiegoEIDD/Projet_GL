@@ -177,10 +177,10 @@
                         <label for="recipient-name" class="col-form-label">Map Name:</label>
                         <input type="text" class="form-control" id="recipient-name">
                       </div>
-                      <div class="form-group">
+                      <!--div class="form-group">
                         <label for="message-text" class="col-form-label">Description:</label>
                         <textarea class="form-control" id="message-text"></textarea>
-                      </div>
+                      </div-->
                     </form>
                   </div>
                   <div class="form-check" style="margin-left: 25px;margin-bottom: 5px;">
@@ -315,7 +315,151 @@
                 </div>
               </div>
             </div>
-              
+
+            <div class="modal fade" id="MarkMenu" tabindex="-1" role="dialog" aria-labelledby="MarkMenuLabel" aria-hidden="true">
+              <div class="modal-dialog modal-lg" role="document">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h5 class="modal-title" id="editMapLabel">Marker</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                      <span aria-hidden="true">&times;</span>
+                    </button>
+                  </div>
+                  <div class="modal-body">
+                    <form>
+                      <div class="form-group">
+                        <label for="recipient-name" class="col-form-label">Marker Name:</label>
+                        <input type="text" placeholder="Actual Name" class="form-control" id="recipient-name">
+                      </div>
+                     
+                      <label for="recipient-name" class="col-form-label">Messages:</label>
+                      <div class="scrollable" style="height: 90px;background-color: #ced4da;border-radius: 7px;">
+                        <table class="table" style="overflow: scroll;">
+                            <tbody id="myTable">
+                              <tr>
+                                  <td style="border-top: transparent;">
+                                      <span href="#" type="input">Message1</span>
+                                  </td>
+                              </tr>
+                              <tr>
+                                  <td style="border-top: transparent;">
+                                    <span href="#" type="input">Message2</span>
+                                  </td>
+                              </tr>
+                              <tr>
+                                  <td style="border-top: transparent;">
+                                    <span href="#" type="input">Message3</span>
+                                  </td>
+                              </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <label for="recipient-name" class="col-form-label">Images:</label>
+                      <div class="scrollable" style="height: 120px;background-color: #ced4da;border-radius: 7px;">
+                        <table class="table" style="overflow: scroll;">
+                            <tbody id="myTable">
+                                  <td style="border-top: transparent;">
+                                    <img src="../Bootstrap/img/logo.png" width="95px" height="95px" class="d-inline-block align-top" alt="">
+                                  </td>
+                                  <td style="border-top: transparent;">
+                                    <img src="../Bootstrap/img/eidd.jpg" width="120px" height="95px" class="d-inline-block align-top" alt="">
+                                  </td>
+                                  <td style="border-top: transparent;">
+                                    <img src="../Bootstrap/img/logo.png" width="95px" height="95px" class="d-inline-block align-top" alt="">
+                                  </td>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    </form>
+                  </div>
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary">Delete</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="modal fade" id="EventMenu" tabindex="-1" role="dialog" aria-labelledby="EventMenuLabel" aria-hidden="true">
+              <div class="modal-dialog modal-lg" role="document">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h5 class="modal-title" id="editMapLabel">Event</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                      <span aria-hidden="true">&times;</span>
+                    </button>
+                  </div>
+                  <div class="modal-body">
+                    <form>
+                      <div class="form-group">
+                        <label for="recipient-name" class="col-form-label">Event Name:</label>
+                        <input type="text" placeholder="Actual Name" class="form-control" id="recipient-name">
+                      </div>
+                     
+                      <label for="recipient-name" class="col-form-label">Messages:</label>
+                      <div class="scrollable" style="height: 90px;background-color: #ced4da;border-radius: 7px;">
+                        <table class="table" style="overflow: scroll;">
+                            <tbody id="myTable">
+                              <tr>
+                                  <td style="border-top: transparent;">
+                                      <span href="#" type="input">Message1</span>
+                                  </td>
+                              </tr>
+                              <tr>
+                                  <td style="border-top: transparent;">
+                                    <span href="#" type="input">Message2</span>
+                                  </td>
+                              </tr>
+                              <tr>
+                                  <td style="border-top: transparent;">
+                                    <span href="#" type="input">Message3</span>
+                                  </td>
+                              </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <label for="recipient-name" class="col-form-label">Images:</label>
+                      <div class="scrollable" style="height: 120px;background-color: #ced4da;border-radius: 7px;">
+                        <table class="table" style="overflow: scroll;">
+                            <tbody id="myTable">
+                                  <td style="border-top: transparent;">
+                                    <img src="../Bootstrap/img/logo.png" width="95px" height="95px" class="d-inline-block align-top" alt="">
+                                  </td>
+                                  <td style="border-top: transparent;">
+                                    <img src="../Bootstrap/img/eidd.jpg" width="120px" height="95px" class="d-inline-block align-top" alt="">
+                                  </td>
+                                  <td style="border-top: transparent;">
+                                    <img src="../Bootstrap/img/logo.png" width="95px" height="95px" class="d-inline-block align-top" alt="">
+                                  </td>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="container row">
+                      <div class="form-group col-md-5">
+                        <label for="recipient-name" class="col-form-label">Duration From:</label>
+                        <input type="text" placeholder="From" class="form-control" id="recipient-name">
+                      </div>
+
+                      <div class="form-group col-md-5">
+                        <label for="recipient-name" class="col-form-label">To:</label>
+                        <input type="text" placeholder="To" class="form-control" id="recipient-name">
+                      </div>
+                    </div>
+
+                    </form>
+                  </div>
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary">Delete</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+            
             <div id="main">
                 <!--link rel="stylesheet" href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css" integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ==" crossorigin=""/-->
         
