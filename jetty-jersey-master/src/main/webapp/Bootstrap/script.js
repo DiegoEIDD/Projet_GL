@@ -1,12 +1,13 @@
+listOfUsers = new Map();
+
 function verifPassword() {
-	var listOfUsers = new Map();
+	login();
 	listOfUsers.set("","");
-	listOfUsers.set("Machin","AcA123");
-	listOfUsers.set("Bidule","g");
 	var username = document.getElementById("username").value;
 	var password = document.getElementById("password").value;
 	if(listOfUsers.has(username)){
 		if(listOfUsers.get(username)===password){
+			listOfUsers.clear()
 			document.location.href="../Bootstrap/map.html";
 		}else{
 			alert("Wrong Password");
@@ -79,3 +80,74 @@ signUp = () =>{
         }
 	});
 }
+
+var check = {};
+
+
+check["userSign"] = function() {
+    var username = document.getElementById("userSign");
+    if (username.value.length >= 3) {
+        return true;
+    } else {
+		alert("Username must have at least 3 characters");
+        return false;
+    }
+};
+
+check["passSign"] = function() {
+    var pwd1 = document.getElementById("passSign");
+    if (pwd1.value.length >= 6) {
+        return true;
+    } else {
+		alert("Password must have at least 6 characters");
+        return false;		
+    }
+};
+
+check["passSign2"] = function() {
+    var pwd1 = document.getElementById("passSign");
+        pwd2 = document.getElementById("passSign2");
+    if (pwd1.value === pwd2.value && pwd2.value != "") {
+        return true;
+    } else {
+		alert("Passwords not identical");
+        return false;		
+    }
+};
+
+function createAccount(){
+	var result = true;
+	for (var i in check) {
+		result = check[i]() && result;
+	}
+	if(result){
+		var username=document.getElementById("userSign").value;
+		var password=document.getElementById("passSign").value;
+		signUp();
+		alert("Account created");
+		document.location.href="../Bootstrap/home.html";
+	}
+}
+
+function testRecup(){
+	postServerData("../ws/user/login","username="+"MyName"+"&password="+"MyPassword",function(result){
+		console.log(result);
+	});
+	var x=getServerData("../ws/user/login",function(result){
+		console.log(result);
+	});
+	console.log(x);
+}
+
+function sendEmail() {
+	Email.send({
+		SecureToken : "93778168-fbda-481f-a6a5-ba63f66265b1",
+	    To : "maximilien.duvina@gmail.com",
+	    From : "maximilien.duvina@gmail.com",
+	    Subject : "This is the subject",
+	    Body : "And this is the body"
+	}).then(
+	  message => alert(message)
+	);
+}
+
